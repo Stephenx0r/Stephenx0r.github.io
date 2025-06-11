@@ -34,15 +34,16 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Stephen 
+  name: Stephen Waweru
   email: stephengathumbi01@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
+    - https://www.linkedin.com/in/stephengathumbi/
     # https://twitter.com/username # change to your twitter homepage
     - https://github.com/Stephenx0r # change to your github homepage
     # Uncomment below to add more social links
+    - https://x.com/m3tadr0id
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/stephen-g-a74664226
 
 google_site_verification: ydhlKwUBYKZQvk9Ed3pNMKEsCH6LpPJ1KKbRnhZKI5w # fill in to your verification string
 
