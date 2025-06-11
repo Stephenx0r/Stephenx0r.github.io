@@ -3,15 +3,18 @@
 icon: fas fa-info-circle
 order: 4
 ---
-## Stephen Waweru
+# Whoami
 
-👜 ‍ Enthusiastic computer science student with a strong interest in Digital Forensics and Incident Response (DFIR).
+🔐 **Passionate about Reverse Engineering, Forensics, and Cryptography**
 
-👾 Developed a profound interest in the field of DFIR and blue teaming. Pwned several challenges and Sherlocks on TryHackMe (THM) and CyberDefenders honing my skills in digital evidence analysis and incident response procedures. 
+🔍 I thrive on solving cybersecurity challenges—from breaking classic ciphers to digging through memory dumps and dissecting binaries. I sharpen my skills through hands-on work in encryption, malware analysis, and reverse engineering.
 
-🚩 Actively participates in Capture the Flag (CTFs).
+🏆 **CTF Enthusiast**  
+I regularly play Capture the Flag (CTF) competitions, where I dive into debuggers, binary exploitation, and network forensics. Finding flags and solving puzzles is my fuel.
 
-## Contact Me
+📚 **Lifelong Learner**  
+I’m always exploring deeper topics like elliptic curve cryptography, x86-64 assembly, and the latest in exploit development.
 
-You can reach out to me on [LinkedIn](https://www.linkedin.com/in/stephen-g-a74664226/) or Discord (@m3tadroid).
+📫 **Find me around the web:**  
+ [Discord](https://discord.com/users/913403186814013440)  [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) | [X](https://x.com/m3tadr0id) |
 
