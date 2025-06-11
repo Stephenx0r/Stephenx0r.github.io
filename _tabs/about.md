@@ -16,5 +16,5 @@ I regularly play Capture the Flag (CTF) competitions, where I dive into debugger
 I’m always exploring deeper topics like elliptic curve cryptography, x86-64 assembly, and the latest in exploit development.
 
 📫 **Find me around the web:**  
- [Discord](https://discord.com/users/913403186814013440)  [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) | [X](https://x.com/m3tadr0id) |
+ [Discord](https://discord.com/users/913403186814013440) |  [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) | [X](https://x.com/m3tadr0id) |
 
