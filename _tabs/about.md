@@ -3,7 +3,6 @@
 icon: fas fa-info-circle
 order: 4
 ---
-# Whoami
 
 🔐 **Passionate about Reverse Engineering, Forensics, and Cryptography**
 
