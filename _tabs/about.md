@@ -4,15 +4,15 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-🔐 **Passionate about Reverse Engineering, Forensics, and Cryptography**
+🔐 I'm into reverse engineering, forensics, and pretty much anything that breaks or leaks.
 
-🔍 I thrive on solving cybersecurity challenges—from breaking classic ciphers to digging through memory dumps and dissecting binaries. I sharpen my skills through hands-on work in encryption, malware analysis, and reverse engineering.
+🔍 I enjoy tearing stuff apart—whether it's dissecting binaries, digging through memory dumps, or figuring out strange behavior in code. I try to do a bit of everything and keep learning along the way.
 
-🏆 **CTF Enthusiast**  
-I regularly play Capture the Flag (CTF) competitions, where I dive into debuggers, binary exploitation, and network forensics. Finding flags and solving puzzles is my fuel.
+🏆 I play CTFs regularly.  
+Reverse engineering weird edge cases whatever it throws at me, I’m down to chase flags and piece together solutions.
 
-📚 **Lifelong Learner**  
-I’m always exploring deeper topics like elliptic curve cryptography, x86-64 assembly, and the latest in exploit development.
+📚 Always learning.  
+From low-level assembly to subtle bugs and obscure behaviors, I’m always experimenting and picking up new tricks to get better at what I do.
 
 📫 **Find me around the web:**  
  [Discord](https://discord.com/users/913403186814013440) |  [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) | [X](https://x.com/m3tadr0id) |

@@ -16,7 +16,7 @@ timezone: Africa/Nairobi
 
 title: Stephen # the main title
 
-tagline: CTF player exploring the captivating world of cybersecurity. # it will display as the sub-title
+tagline: Breaking binaries, not hearts.  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Unraveling the art of cybersecurity through detailed CTF write-ups and explorations.
