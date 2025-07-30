@@ -14,7 +14,7 @@ timezone: Africa/Nairobi
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: m3tadr0id # the main title
+title: stephen # the main title
 
 tagline: Breaking binaries, not hearts.  # it will display as the sub-title
 
@@ -29,7 +29,7 @@ github:
   username: Stephenx0r # change to your github username
 
 twitter:
-  username: m3tadr0id # change to your twitter username
+  username: stephen # change to your twitter username
 
 social:
   # Change to your full name.
@@ -42,7 +42,7 @@ social:
     # https://twitter.com/Stephenx0r # change to your twitter homepage
     - https://github.com/Stephenx0r # change to your github homepage
     # Uncomment below to add more social links
-    - https://x.com/m3tadr0id
+    # https://x.com/username
     # - https://www.facebook.com/username
 
 google_site_verification: ydhlKwUBYKZQvk9Ed3pNMKEsCH6LpPJ1KKbRnhZKI5w # fill in to your verification string

@@ -12,8 +12,8 @@ order: 4
 Reverse engineering weird edge cases whatever it throws at me, I’m down to chase flags and piece together solutions.
 
 📚 Always learning.  
-From low-level assembly to subtle bugs and obscure behaviors, I’m always experimenting and picking up new tricks to get better at what I do.
+From low-level assembly to subtle bugs , I’m always experimenting and picking up new tricks to get better at what I do.
 
 📫 **Find me around the web:**  
- [Discord](https://discord.com/users/913403186814013440) |  [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) | [X](https://x.com/m3tadr0id) |
+ [LinkedIn](https://www.linkedin.com/in/stephengathumbi/) 
 
