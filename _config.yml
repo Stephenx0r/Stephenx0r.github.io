@@ -26,10 +26,10 @@ description: >- # used by seo meta and the atom feed
 url: "https://stephenx0r.github.io"
 
 github:
-  username: Stephenx0r # change to your github username
+  username:  # change to your github username
 
 twitter:
-  username: stephen # change to your twitter username
+  username:  # change to your twitter username
 
 social:
   # Change to your full name.
@@ -39,8 +39,8 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://www.linkedin.com/in/stephengathumbi/
-    # https://twitter.com/Stephenx0r # change to your twitter homepage
-    - https://github.com/Stephenx0r # change to your github homepage
+    # https://twitter.com/username # change to your twitter homepage
+    # https://github.com/username # change to your github homepage
     # Uncomment below to add more social links
     # https://x.com/username
     # - https://www.facebook.com/username
