@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reverseengineering on Stephenx0r - CTF Writeups</title><link>https://stephenx0r.github.io/tags/reverseengineering/</link><description>Recent content in Reverseengineering on Stephenx0r - CTF Writeups</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 20 Jun 2025 07:00:00 +0000</lastBuildDate><atom:link href="https://stephenx0r.github.io/tags/reverseengineering/index.xml" rel="self" type="application/rss+xml"/><item><title>US CyberGames</title><link>https://stephenx0r.github.io/posts/2025-06-20-uscybergames2025/</link><pubDate>Fri, 20 Jun 2025 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2025-06-20-uscybergames2025/</guid><description>&lt;p&gt;This write up documents the challenges I solved during the US Cyber Games 2025 , specifically in the categories of &lt;strong&gt;Pwn&lt;/strong&gt;, &lt;strong&gt;Forensics&lt;/strong&gt;, &lt;strong&gt;Reverse Engineering&lt;/strong&gt;, and &lt;strong&gt;Cryptography&lt;/strong&gt;. Each section walks through my process—from analyzing binary exploits and reconstructing OLED display data to decrypting protected files and extracting browser artifacts.&lt;/p&gt;
+&lt;h2 id="drive-discovery"&gt;Drive Discovery&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Challenge File:&lt;/strong&gt; &lt;code&gt;nothinginterestinghere.001&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;Category:&lt;/strong&gt; Forensics&lt;br&gt;
+&lt;strong&gt;Tools Used:&lt;/strong&gt; &lt;code&gt;file&lt;/code&gt;, FTK Imager, &lt;code&gt;base64&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Description&lt;/p&gt;
+&lt;p&gt;We’re given a file named &lt;code&gt;nothinginterestinghere.001&lt;/code&gt; — clearly a disk image segment. Our task is to examine it and extract any hidden or deleted secrets.
+&lt;img src="https://gist.github.com/user-attachments/assets/a0a6b947-0e40-4075-941a-9ca12e67056c" alt="image"&gt;&lt;/p&gt;</description></item><item><title>Cybergame 2025 Writeups</title><link>https://stephenx0r.github.io/posts/2025-06-11-cybergame2025/</link><pubDate>Wed, 11 Jun 2025 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2025-06-11-cybergame2025/</guid><description>&lt;p&gt;I took 1st place 🥇 in CyberGame 2025, solving 71 out of 73 challenges and claiming 52 First bloods 🩸 along the way.
+&lt;img src="https://gist.github.com/user-attachments/assets/3dbb099e-da02-455a-b608-7952b96faad2" alt="image"&gt;&lt;/p&gt;
+&lt;p&gt;The game featured a wide variety of categories, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Web Exploitation &amp;amp; Binary Exploitation&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Forensics&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;OSINT (Open Source Intelligence)&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cryptography&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Malware Analysis &amp;amp; Reverse Engineering&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Process and Governance&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PyJails&lt;/strong&gt; _(as part of the JAILE series)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are writeups for a few of the challenges I found particularly interesting.&lt;/p&gt;</description></item><item><title>Deadface 2024 CTF</title><link>https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/</link><pubDate>Mon, 28 Oct 2024 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/</guid><description>&lt;p&gt;This is a writeup for DeadFace ctf 2024&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://stephenx0r.github.io/assets/posts/deadface2024/pic1.png" alt="pic1.png"&gt;&lt;/p&gt;
+&lt;h2 id="reverse-engineering"&gt;Reverse Engineering&lt;/h2&gt;
+&lt;h2 id="cereal-killer-01"&gt;Cereal Killer 01&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://stephenx0r.github.io/assets/posts/deadface2024/pic2.png" alt="pic1.png"&gt;&lt;/p&gt;
+&lt;p&gt;We are given a binary and an executable file. Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see!
+&lt;img src="https://stephenx0r.github.io/assets/posts/deadface2024/pic3.png" alt="pic1.png"&gt;The string &lt;code&gt;obboreel&lt;/code&gt; stands out trying it out as the password and it was not the password.
+I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied.&lt;/p&gt;</description></item></channel></rss>

