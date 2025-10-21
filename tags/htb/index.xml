@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Htb on</title><link>https://stephenx0r.github.io/tags/htb/</link><description>Recent content in Htb on</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2025 Stephen Waweru</copyright><lastBuildDate>Sun, 17 Mar 2024 07:00:00 +0000</lastBuildDate><atom:link href="https://stephenx0r.github.io/tags/htb/index.xml" rel="self" type="application/rss+xml"/><item><title>HTB CYBER-APOCALYPSE 2024 FORENSICS WRITEUPS</title><link>https://stephenx0r.github.io/posts/2024-03-21-htbctf2024/</link><pubDate>Sun, 17 Mar 2024 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-03-21-htbctf2024/</guid><description>&lt;p&gt;This is a writeup for forensics for HTB 2024&lt;/p&gt;
+&lt;p&gt;Urgent [Very Easy]&lt;/p&gt;
+&lt;p&gt;We are given an email file &lt;code&gt;.eml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Printing out its contents we notice base64 encoding
+&lt;figure&gt;&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+decoding="async"
+fetchpriority="low"
+alt="beginner1.png"
+src="https://stephenx0r.github.io/assets/posts/htbctfapocalpyse2024/eml.png"
+&gt;&lt;/figure&gt;
+&lt;/p&gt;</description></item></channel></rss>
