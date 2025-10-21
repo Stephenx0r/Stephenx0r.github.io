@@ -1,80 +1,171 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-10-21T15:21:58+03:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>http://localhost:1313/about/</loc>
     <lastmod>2025-10-21T15:21:58+03:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-21T15:21:58+03:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/categories/ctf/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/categories/forensics/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/forensics/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/htb/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/2025-10-12-qnqsecctf2025/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-10-21T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/categories/crypto/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/ctf/</loc>
-    <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/jail/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/categories/reverse-engineering/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/reverseengineering/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2025-06-20-uscybergames2025/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2025-06-11-cybergame2025/</loc>
     <lastmod>2025-06-11T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2024-11-10-bluehensctf2024/</loc>
     <lastmod>2024-11-10T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/categories/misc/</loc>
     <lastmod>2024-11-10T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/deadface/</loc>
     <lastmod>2024-10-28T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2024-10-28-deadfacectf2024/</loc>
     <lastmod>2024-10-28T07:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/forensics/</loc>
-    <lastmod>2024-10-28T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/beginner/</loc>
     <lastmod>2024-03-20T12:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/jwt/</loc>
     <lastmod>2024-03-20T12:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/osint/</loc>
     <lastmod>2024-03-20T12:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/tags/wolv/</loc>
     <lastmod>2024-03-20T12:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2024-03-17-wolvctf2024/</loc>
     <lastmod>2024-03-20T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/forensics/</loc>
-    <lastmod>2024-03-17T07:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/htb/</loc>
-    <lastmod>2024-03-17T07:00:00+00:00</lastmod>
-  </url><url>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/2024-03-21-htbctf2024/</loc>
     <lastmod>2024-03-17T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/authors/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/series/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
