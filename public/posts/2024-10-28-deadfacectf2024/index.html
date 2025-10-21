@@ -1,50 +1,290 @@
-<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=en-us dir=ltr><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Deadface 2024 CTF - Stephenx0r - CTF Writeups</title><meta name=theme-color><meta name=description content="This is a writeup for  DeadFace ctf 2024
+<!doctype html>
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg:#faf8f1"
+  lang="en-us"
+  dir="ltr"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Deadface 2024 CTF - Stephenx0r - CTF Writeups</title>
+
+  
+  <meta name="theme-color" />
+
+  <meta name="description" content="This is a writeup for  DeadFace ctf 2024
 
 Reverse Engineering
 Cereal Killer 01
 
 We are given a binary and an executable file.  Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see!
 The string obboreel stands out trying it out as the password and it was not the password.
-I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied."><meta name=author content="Stephenx0r - CTF Writeups"><link rel="preload stylesheet" as=style href=https://stephenx0r.github.io/main.min.css><link rel=preload as=image href=https://stephenx0r.github.io/theme.png><link rel=preload as=image href=https://stephenx0r.github.io/github.svg><link rel=preload as=image href=https://stephenx0r.github.io/linkedin.svg><script defer src=https://stephenx0r.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=https://stephenx0r.github.io/favicon.ico><link rel=apple-touch-icon href=https://stephenx0r.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.150.1"><meta itemprop=name content="Deadface 2024 CTF"><meta itemprop=description content="This is a writeup for DeadFace ctf 2024
-Reverse Engineering Cereal Killer 01 We are given a binary and an executable file. Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see! The string obboreel stands out trying it out as the password and it was not the password. I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied."><meta itemprop=datePublished content="2024-10-28T07:00:00+00:00"><meta itemprop=dateModified content="2024-10-28T07:00:00+00:00"><meta itemprop=wordCount content="1090"><meta itemprop=keywords content="Forensics,Reverseengineering,Deadface"><meta property="og:url" content="https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/"><meta property="og:site_name" content="Stephenx0r - CTF Writeups"><meta property="og:title" content="Deadface 2024 CTF"><meta property="og:description" content="This is a writeup for DeadFace ctf 2024
-Reverse Engineering Cereal Killer 01 We are given a binary and an executable file. Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see! The string obboreel stands out trying it out as the password and it was not the password. I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-10-28T07:00:00+00:00"><meta property="article:modified_time" content="2024-10-28T07:00:00+00:00"><meta property="article:tag" content="Forensics"><meta property="article:tag" content="Reverseengineering"><meta property="article:tag" content="Deadface"><meta name=twitter:card content="summary"><meta name=twitter:title content="Deadface 2024 CTF"><meta name=twitter:description content="This is a writeup for DeadFace ctf 2024
-Reverse Engineering Cereal Killer 01 We are given a binary and an executable file. Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see! The string obboreel stands out trying it out as the password and it was not the password. I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied."><link rel=canonical href=https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/></head><body class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"><div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto"><a class="-translate-y-[1px] text-2xl font-medium" href=https://stephenx0r.github.io/>Stephenx0r - CTF Writeups</a><div class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"><nav class="mt-12 flex justify-center space-x-10 lg:mt-0 lg:items-center ltr:lg:ml-14 rtl:space-x-reverse rtl:lg:mr-14 dark:invert"><a class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./github.svg) href=https://github.com/Stephenx0r target=_blank rel=me>github</a>
-<a class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6" style=--url:url(./linkedin.svg) href=https://linkedin.com/in/stephengathumbi target=_blank rel=me>linkedin</a></nav></div></header><main class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"><article><header class=mb-14><h1 class="my-0! pb-2.5">Deadface 2024 CTF</h1><div class="text-xs antialiased opacity-60"><time>Oct 28, 2024</time></div></header><section><p>This is a writeup for DeadFace ctf 2024</p><p><img src=/assets/posts/deadface2024/pic1.png alt=pic1.png></p><h2 id=reverse-engineering>Reverse Engineering</h2><h2 id=cereal-killer-01>Cereal Killer 01</h2><p><img src=/assets/posts/deadface2024/pic2.png alt=pic1.png></p><p>We are given a binary and an executable file. Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see!
-<img src=/assets/posts/deadface2024/pic3.png alt=pic1.png>The string <code>obboreel</code> stands out trying it out as the password and it was not the password.
-I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied.</p><p><img src=/assets/posts/deadface2024/pic4.png alt=pic1.png></p><p>After</p><p><img src=/assets/posts/deadface2024/pic5.png alt=pic1.png></p><p>The input is being reversed the word <code>booberry</code> looking up the word its a cereal and trying it out it was definetly the password and we get the flag!</p><p><img src=/assets/posts/deadface2024/pic6.png alt=pic1.png></p><h2 id=cereal-killer-02>Cereal Killer 02</h2><p><img src=/assets/posts/deadface2024/pic7.png alt=pic1.png></p><p>Running the binary gave me the cryptic message, “Please enter the password.” Challenge accepted.
-I tossed this bad boy into IDA Pro, and right away, I zeroed in on the function <code>sub_13DC</code>. The name didn’t scream “password handler,” but it was clearly doing <em>something</em> important. A few strings in the output hinted it might be a password validation function, so let’s crack it wide open.</p><p><img src=/assets/posts/deadface2024/pic9.png alt=pic1.png></p><h3 id=sub_13dc--the-password-sieve><code>sub_13DC</code> – The Password Sieve</h3><p>So, we’ve got a big ol&rsquo; pile of variables in here—<code>s</code>, <code>s1</code>, <code>s2</code>, and some more arrays. This is where the binary initializes everything, probably hashing or messing with the password input in some convoluted way. Here’s the fun part:</p><ol><li><p><strong>The Password Prompt</strong>: The function prompts for the password, which gets shoved into <code>inputpassword</code>. Right after, a string of mysterious sub-functions start grinding away at the input. This was a clear invitation to reverse engineer each one.</p></li><li><p><strong>Breaking Down the Mystery Functions</strong>: First up, <code>sub_132F</code>. This function takes a string like <code>"976e86dafec99d2da69bbaa762aba8cc"</code> and stores some hashed result into <code>s2</code>. It was hashing hardcoded strings, which meant the binary was expecting something specific to pass that check</p></li><li><p>So, after finding the password <em>yellowschoolbus</em> using the hash <code>104e5dc03561ebf96acf9a0b2b5f184f</code> online, I confidently punched it into the binary. But guess what? It didn’t work! Classic case of getting your hopes up, right?</p></li></ol><p>Then I spotted that sneaky second hash, <code>976e86dafec99d2da69bbaa762aba8cc</code>. I knew that one was going to need some serious firepower, likely requiring Hashcat to crack it.</p><p>Instead, I opted to patch the program. I mean, who wouldn’t choose a shortcut when the end goal is just a patch away? So, I skipped the hassle of cracking that second hash, and just like that, I was ready to snag the flag without any fuss!
-<img src=/assets/posts/deadface2024/pic10.png alt=pic1.png></p><p>To really wrap things up, I decided to NOP (No Operation) the <code>JNE</code> instruction in the binary.</p><p><img src=/assets/posts/deadface2024/pic8.png alt=pic1.png></p><h2 id=cereal-killer-03>Cereal Killer 03</h2><p><img src=/assets/posts/deadface2024/pic11.png alt=pic11.png>
-<em>We’ve conquered the 250-point challenges, and now it&rsquo;s time to gear up for the big leagues as we tackle the 500-point ones!</em></p><p>When analyzing the pseudocode we see the password is being hashed inspecting the memory layout I did set a breakpoint before jump is taken the <code>cmp eax, [ecx]</code> synchronizing the <code>ecx</code> variable with the hex view we can see our input password <code>stephen</code> is md5 hashed<code> 7F F3 67 97 53 91 30 F7 74 45 F4 8D A5 D4 A1 26</code></p><p><img src=/assets/posts/deadface2024/pic12.png alt=pic12.png>The correct password being saved in the <code>edx</code> register I synchronized it as well and it sits on top of the <code>ecx</code> register <code>EC C8 8B 0A F9 02 53 E8 70 06 97 4B 2F 3F DC</code></p><p>I did assemble the <code>edx</code> bytes to the <code>ecx</code> to make a match for the comparison to pass</p><p><img src=/assets/posts/deadface2024/pic15.png alt=pic15.png></p><p>Running the executable after setting a breakpoint before <code>retn</code> to get the flag
-<img src=/assets/posts/deadface2024/pic13.png alt=pic13.png></p><h2 id=cereal-killer-04>Cereal Killer 04</h2><p><img src=/assets/posts/deadface2024/pic16.png alt=pic16.png></p><p>Running the binary we see Access Violation occurred. Ahem seems like its trying to access a memory location that is not valid. Upon inspecting the strings and the source code we see the Windows API functions like <code>VirtualAlloc</code> and <code>VirtualProtect</code></p><p><img src=/assets/posts/deadface2024/pic23.png alt=pic23.png></p><p>We see the program accesses an invalid memory location <code>2BAD2BAD</code> I did set an <code>ip</code>
-to another instruction from the call accessing the invalid memory location
-<img src=/assets/posts/deadface2024/pic17.png alt=pic17.png></p><p>We see the program tries again to access an invalid memory location <code>DEADFACE</code> I did set an <code>ip</code>
-to another instruction from the call accessing the invalid memory location running the executable it terminated. I did inspect the last call to the invalid memory location <code>DEADFACE</code> by stepping into it</p><p><img src=/assets/posts/deadface2024/pic18.png alt=pic18.png></p><p>We see as highlighted below the invalid memory address being saved to <code>eax</code> and a jmp being made to it causing an access violation error.
-<img src=/assets/posts/deadface2024/pic20.png alt=pic20.png></p><p>I did set an <code>ip</code> after the <code>jmp</code> instruction
-<img src=/assets/posts/deadface2024/pic21.png alt=pic21.png></p><p>The executable loads <code>dll's</code> and loads an audio from a remote server and plays it reading the flag out loud!
-<img src=/assets/posts/deadface2024/pic22.png alt=pic22.png></p><p><img src=/assets/posts/deadface2024/pic24.png alt=pic24.png></p><p>We are given a jar file running it we see it requires a password
-<img src=/assets/posts/deadface2024/pic26.png alt=pic26.png></p><p><strong>1. Decompiling</strong><br>First, I opened the JAR file in <code>jadx-gui</code> and found the XOR function used to decrypt a URL. Here&rsquo;s the relevant function:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln>1</span><span class=cl>private static byte[] decryptURL(byte[] bArr, String str) {
-</span></span><span class=line><span class=ln>2</span><span class=cl>    byte[] bArr2 = new byte[bArr.length];
-</span></span><span class=line><span class=ln>3</span><span class=cl>    for (int i = 0; i &lt; bArr.length; i++) {
-</span></span><span class=line><span class=ln>4</span><span class=cl>        bArr2[i] = (byte) (bArr[i] ^ str.charAt(i % str.length()));
-</span></span><span class=line><span class=ln>5</span><span class=cl>    }
-</span></span><span class=line><span class=ln>6</span><span class=cl>    return bArr2;
-</span></span><span class=line><span class=ln>7</span><span class=cl>}
-</span></span></code></pre></div><p><img src=/assets/posts/deadface2024/pic27.png alt=pic27.png>
-The XOR function loops through <code>encryptedURL</code>, applying a password in a repeating cycle.</p><p>The challenge required us to decrypt an encrypted URL using a password. While the password wasn’t explicitly stated, the decryption function provided a key insight: it checks if the decrypted URL starts with <code>"https."</code> This led me to deduce that the password itself might be derived from the string format of the URL. Given that &ldquo;https&rdquo; is a common prefix for secure web addresses, it became a logical choice for the password to successfully decrypt the byte array.</p><p>By using &ldquo;https&rdquo; as the key, we were able to reverse the XOR operation, revealing the full URL.. Since XOR is a reversible operation, I crafted a quick Python script to perform the decryption:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=ln> 1</span><span class=cl>encrypted_url = [42, 6, 68, 64, 7, 120, 93, 31, 83, 17, 48, 23, 81, 92, 90, 46, 11, 68, 68, 27, 44, 30, 81, 82, 7, 108, 29, 66, 87, 91, 33, 23, 66, 85, 21, 46, 1, 31, 86, 6, 45, 29, 68, 82, 6, 45, 29, 68, 30, 30, 50, 23, 87]
-</span></span><span class=line><span class=ln> 2</span><span class=cl>
-</span></span><span class=line><span class=ln> 3</span><span class=cl>Known plaintext prefix
-</span></span><span class=line><span class=ln> 4</span><span class=cl>prefix = &#34;https&#34;
-</span></span><span class=line><span class=ln> 5</span><span class=cl>
-</span></span><span class=line><span class=ln> 6</span><span class=cl>Derive key from prefix and first few bytes of encrypted_url
-</span></span><span class=line><span class=ln> 7</span><span class=cl>key = [encrypted_url[i] ^ ord(prefix[i]) for i in range(len(prefix))]
-</span></span><span class=line><span class=ln> 8</span><span class=cl>Extend key to match the length of encrypted_url
-</span></span><span class=line><span class=ln> 9</span><span class=cl>full_key = (key * (len(encrypted_url) // len(key) + 1))[:len(encrypted_url)]
-</span></span><span class=line><span class=ln>10</span><span class=cl>
-</span></span><span class=line><span class=ln>11</span><span class=cl>Decrypt the URL
-</span></span><span class=line><span class=ln>12</span><span class=cl>decrypted_url = &#39;&#39;.join(chr(b ^ k) for b, k in zip(encrypted_url, full_key))
-</span></span><span class=line><span class=ln>13</span><span class=cl>
-</span></span><span class=line><span class=ln>14</span><span class=cl>print(&#34;Derived Password (Key):&#34;, &#39;&#39;.join(chr(k) for k in key))
-</span></span><span class=line><span class=ln>15</span><span class=cl>print(&#34;Decrypted URL:&#34;, decrypted_url)
-</span></span></code></pre></div><p><img src=/assets/posts/deadface2024/pic25.png alt=pic25.png></p></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/forensics>forensics</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/reverseengineering>reverseengineering</a><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://stephenx0r.github.io/tags/deadface>deadface</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://stephenx0r.github.io/posts/2024-11-10-bluehensctf2024/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Bluehens 2024 CTF</span></a><a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href=https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/><span>WolvCTF 2024 - Writeups</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav></article></main><footer class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"><div class=mr-auto>&copy;2025
-<a class=link href=https://stephenx0r.github.io/>Stephenx0r - CTF Writeups</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
-<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>
+I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied." />
+  <meta name="author" content="Stephenx0r - CTF Writeups" /><link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+
+  <link rel="preload" as="image" href="http://localhost:1313/github.svg" /><link rel="preload" as="image" href="http://localhost:1313/linkedin.svg" />
+
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+
+  
+  <link
+    rel="icon"
+    href="http://localhost:1313/favicon.ico"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="http://localhost:1313/apple-touch-icon.png"
+  />
+
+  <meta name="generator" content="Hugo 0.150.1">
+</head>
+<body
+    class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"
+  ><header
+  class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"
+>
+  <div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto">
+    <a
+      class="-translate-y-[1px] text-2xl font-medium"
+      href="http://localhost:1313/"
+      >Stephenx0r - CTF Writeups</a
+    >
+    <div
+      class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"
+  ><nav
+      class="mt-12 flex justify-center space-x-10 lg:mt-0 lg:items-center ltr:lg:ml-14 rtl:space-x-reverse rtl:lg:mr-14 dark:invert"
+    >
+      <a
+        class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/Stephenx0r"
+        target="_blank"
+        rel="me"
+      >github</a>
+      <a
+        class="h-7 w-7 text-[0px] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./linkedin.svg)"
+        href="https://linkedin.com/in/stephengathumbi"
+        target="_blank"
+        rel="me"
+      >linkedin</a>
+    </nav>
+  </div>
+</header>
+<main
+      class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"
+    ><article>
+  <header class="mb-14">
+    <h1 class="my-0! pb-2.5">Deadface 2024 CTF</h1><div class="text-xs antialiased opacity-60"><time>Oct 28, 2024</time></div></header>
+
+  <section><p>This is a writeup for  DeadFace ctf 2024</p>
+<p><img src="/assets/posts/deadface2024/pic1.png" alt="pic1.png"></p>
+<h2 id="reverse-engineering">Reverse Engineering</h2>
+<h2 id="cereal-killer-01">Cereal Killer 01</h2>
+<p><img src="/assets/posts/deadface2024/pic2.png" alt="pic1.png"></p>
+<p>We are given a binary and an executable file.  Running the executable we are prompted for a password I loaded up the binary file in IDA Pro and looked at the strings maybe the password is hardcoded lets see!
+<img src="/assets/posts/deadface2024/pic3.png" alt="pic1.png">The string <code>obboreel</code> stands out trying it out as the password and it was not the password.
+I did spin up x64dbg to debug the file and set a breakpoint before the jump of printing the bad message Access Denied.</p>
+<p><img src="/assets/posts/deadface2024/pic4.png" alt="pic1.png"></p>
+<p>After</p>
+<p><img src="/assets/posts/deadface2024/pic5.png" alt="pic1.png"></p>
+<p>The input is being reversed the word <code>booberry</code> looking up the word its a cereal and trying it out it was definetly the  password and we get the flag!</p>
+<p><img src="/assets/posts/deadface2024/pic6.png" alt="pic1.png"></p>
+<h2 id="cereal-killer-02">Cereal Killer 02</h2>
+<p><img src="/assets/posts/deadface2024/pic7.png" alt="pic1.png"></p>
+<p>Running the binary gave me the cryptic message, “Please enter the password.” Challenge accepted.
+I tossed this bad boy into IDA Pro, and right away, I zeroed in on the function <code>sub_13DC</code>. The name didn’t scream “password handler,” but it was clearly doing <em>something</em> important. A few strings in the output hinted it might be a password validation function, so let’s crack it wide open.</p>
+<p><img src="/assets/posts/deadface2024/pic9.png" alt="pic1.png"></p>
+<h3 id="sub_13dc--the-password-sieve"><code>sub_13DC</code> – The Password Sieve</h3>
+<p>So, we’ve got a big ol&rsquo; pile of variables in here—<code>s</code>, <code>s1</code>, <code>s2</code>, and some more arrays. This is where the binary initializes everything, probably hashing or messing with the password input in some convoluted way. Here’s the fun part:</p>
+<ol>
+<li>
+<p><strong>The Password Prompt</strong>: The function prompts for the password, which gets shoved into <code>inputpassword</code>. Right after, a string of mysterious sub-functions start grinding away at the input. This was a clear invitation to reverse engineer each one.</p>
+</li>
+<li>
+<p><strong>Breaking Down the Mystery Functions</strong>: First up, <code>sub_132F</code>. This function takes a string like <code>&quot;976e86dafec99d2da69bbaa762aba8cc&quot;</code> and stores some hashed result into <code>s2</code>. It was hashing hardcoded strings, which meant the binary was expecting something specific to pass that check</p>
+</li>
+<li>
+<p>So, after finding the password <em>yellowschoolbus</em>  using the hash <code>104e5dc03561ebf96acf9a0b2b5f184f</code> online, I confidently punched it into the binary. But guess what? It didn’t work! Classic case of getting your hopes up, right?</p>
+</li>
+</ol>
+<p>Then I spotted that sneaky second hash, <code>976e86dafec99d2da69bbaa762aba8cc</code>. I knew that one was going to need some serious firepower, likely requiring Hashcat to crack it.</p>
+<p>Instead, I opted to patch the program. I mean, who wouldn’t choose a shortcut when the end goal is just a patch away? So, I skipped the hassle of cracking that second hash, and just like that, I was ready to snag the flag without any fuss!
+<img src="/assets/posts/deadface2024/pic10.png" alt="pic1.png"></p>
+<p>To really wrap things up, I decided to NOP (No Operation) the <code>JNE</code> instruction in the binary.</p>
+<p><img src="/assets/posts/deadface2024/pic8.png" alt="pic1.png"></p>
+<h2 id="cereal-killer-03">Cereal Killer 03</h2>
+<p><img src="/assets/posts/deadface2024/pic11.png" alt="pic11.png">
+<em>We’ve conquered the 250-point challenges, and now it&rsquo;s time to gear up for the big leagues as we tackle the 500-point ones!</em></p>
+<p>When analyzing the pseudocode we see the password is being hashed inspecting the memory layout I did set a breakpoint before  jump is taken the <code>cmp eax, [ecx]</code>  synchronizing the <code>ecx</code> variable with the hex view we can see our input password <code>stephen</code> is md5 hashed<code> 7F F3 67 97 53 91 30 F7 74 45 F4 8D A5 D4 A1 26</code></p>
+<p><img src="/assets/posts/deadface2024/pic12.png" alt="pic12.png">The correct password being saved in the <code>edx</code> register I synchronized it as well and it sits on top of the <code>ecx</code> register <code>EC C8 8B 0A F9 02 53 E8 70 06 97 4B 2F 3F DC </code></p>
+<p>I did assemble the <code>edx</code> bytes to the <code>ecx</code> to make a match for the comparison to pass</p>
+<p><img src="/assets/posts/deadface2024/pic15.png" alt="pic15.png"></p>
+<p>Running the executable after setting a breakpoint before <code>retn</code> to get the flag
+<img src="/assets/posts/deadface2024/pic13.png" alt="pic13.png"></p>
+<h2 id="cereal-killer-04">Cereal Killer 04</h2>
+<p><img src="/assets/posts/deadface2024/pic16.png" alt="pic16.png"></p>
+<p>Running the binary we see Access Violation occurred. Ahem seems like its trying to access a memory location that is not valid. Upon inspecting the strings and the source code we see the Windows API functions like <code>VirtualAlloc</code> and <code>VirtualProtect</code></p>
+<p><img src="/assets/posts/deadface2024/pic23.png" alt="pic23.png"></p>
+<p>We see the program accesses an invalid memory location <code>2BAD2BAD</code> I did set an <code>ip</code>
+to another instruction from the call  accessing the  invalid memory location
+<img src="/assets/posts/deadface2024/pic17.png" alt="pic17.png"></p>
+<p>We see the program  tries again to access an invalid memory location <code>DEADFACE</code> I did set an <code>ip</code>
+to another instruction from the call  accessing the  invalid memory location running the executable it terminated. I did inspect  the last call to the invalid memory location  <code>DEADFACE</code> by stepping into it</p>
+<p><img src="/assets/posts/deadface2024/pic18.png" alt="pic18.png"></p>
+<p>We see as highlighted below the invalid memory address being saved to <code>eax</code> and a jmp being made to it causing an access violation error.
+<img src="/assets/posts/deadface2024/pic20.png" alt="pic20.png"></p>
+<p>I did set an <code>ip</code> after the <code>jmp</code> instruction
+<img src="/assets/posts/deadface2024/pic21.png" alt="pic21.png"></p>
+<p>The executable loads <code>dll's</code> and loads an audio from a remote server and  plays it reading the flag out loud!
+<img src="/assets/posts/deadface2024/pic22.png" alt="pic22.png"></p>
+<p><img src="/assets/posts/deadface2024/pic24.png" alt="pic24.png"></p>
+<p>We are given a jar file running it we see it requires a password
+<img src="/assets/posts/deadface2024/pic26.png" alt="pic26.png"></p>
+<p><strong>1. Decompiling</strong><br>
+First, I opened the JAR file in <code>jadx-gui</code> and found the XOR function used to decrypt a URL. Here&rsquo;s the relevant function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">private static byte[] decryptURL(byte[] bArr, String str) {
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    byte[] bArr2 = new byte[bArr.length];
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    for (int i = 0; i &lt; bArr.length; i++) {
+</span></span><span class="line"><span class="ln">4</span><span class="cl">        bArr2[i] = (byte) (bArr[i] ^ str.charAt(i % str.length()));
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    }
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    return bArr2;
+</span></span><span class="line"><span class="ln">7</span><span class="cl">}
+</span></span></code></pre></div><p><img src="/assets/posts/deadface2024/pic27.png" alt="pic27.png">
+The XOR function loops through <code>encryptedURL</code>, applying a password in a repeating cycle.</p>
+<p>The challenge required us to decrypt an encrypted URL using a password. While the password wasn’t explicitly stated, the decryption function provided a key insight: it checks if the decrypted URL starts with <code>&quot;https.&quot;</code> This led me to deduce that the password itself might be derived from the string format of the URL. Given that &ldquo;https&rdquo; is a common prefix for secure web addresses, it became a logical choice for the password to successfully decrypt the byte array.</p>
+<p>By using &ldquo;https&rdquo; as the key, we were able to reverse the XOR operation, revealing the full URL.. Since XOR is a reversible operation, I crafted a quick Python script to perform the decryption:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln"> 1</span><span class="cl">encrypted_url = [42, 6, 68, 64, 7, 120, 93, 31, 83, 17, 48, 23, 81, 92, 90, 46, 11, 68, 68, 27, 44, 30, 81, 82, 7, 108, 29, 66, 87, 91, 33, 23, 66, 85, 21, 46, 1, 31, 86, 6, 45, 29, 68, 82, 6, 45, 29, 68, 30, 30, 50, 23, 87]
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">Known plaintext prefix
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">prefix = &#34;https&#34;
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Derive key from prefix and first few bytes of encrypted_url
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">key = [encrypted_url[i] ^ ord(prefix[i]) for i in range(len(prefix))]
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">Extend key to match the length of encrypted_url
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">full_key = (key * (len(encrypted_url) // len(key) + 1))[:len(encrypted_url)]
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Decrypt the URL
+</span></span><span class="line"><span class="ln">12</span><span class="cl">decrypted_url = &#39;&#39;.join(chr(b ^ k) for b, k in zip(encrypted_url, full_key))
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl">print(&#34;Derived Password (Key):&#34;, &#39;&#39;.join(chr(k) for k in key))
+</span></span><span class="line"><span class="ln">15</span><span class="cl">print(&#34;Decrypted URL:&#34;, decrypted_url)
+</span></span></code></pre></div><p><img src="/assets/posts/deadface2024/pic25.png" alt="pic25.png"></p>
+</section>
+
+  <footer class="mt-12 flex flex-wrap"><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="http://localhost:1313/tags/forensics"
+      >forensics</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="http://localhost:1313/tags/reverseengineering"
+      >reverseengineering</a
+    ><a
+      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
+      href="http://localhost:1313/tags/deadface"
+      >deadface</a
+    ></footer><nav
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
+  ><a class="ltr:pr-3 rtl:pl-3" href="http://localhost:1313/posts/2024-11-10-bluehensctf2024/"
+      ><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>Bluehens 2024 CTF</span></a
+    ><a
+      class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
+      href="http://localhost:1313/posts/2024-03-17-wolvctf2024/"
+      ><span>WolvCTF 2024 - Writeups</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
+    ></nav></article></main><footer
+  class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"
+>
+  <div class="mr-auto">&copy;2025
+    <a class="link" href="http://localhost:1313/">Stephenx0r - CTF Writeups</a></div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >powered by hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >hugo-paper</a
+  >
+</footer>
+</body>
+</html>

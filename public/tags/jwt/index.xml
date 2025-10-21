@@ -1,9 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jwt on Stephenx0r - CTF Writeups</title><link>https://stephenx0r.github.io/tags/jwt/</link><description>Recent content in Jwt on Stephenx0r - CTF Writeups</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 20 Mar 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://stephenx0r.github.io/tags/jwt/index.xml" rel="self" type="application/rss+xml"/><item><title>WolvCTF 2024 - Writeups</title><link>https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/</link><pubDate>Wed, 20 Mar 2024 12:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/</guid><description>&lt;p&gt;This is a writeup for , forensics and web challenges from WolvCTF 2024&lt;/p&gt;
-&lt;h2 id="forensics-hidden-data-beginner"&gt;Forensics: Hidden Data [Beginner]&lt;/h2&gt;
-&lt;p&gt;Question: WOLPHV sent me this file. Not sure what to comment about it&lt;/p&gt;
-&lt;p&gt;Flag: &lt;code&gt;wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;We are given an image of the CTF logo. Just use Aperi&amp;rsquo;Solve and the flag can be found within its data.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://stephenx0r.github.io/assets/posts/wolvctf2024/beginner1.png" alt="beginner1.png"&gt;&lt;/p&gt;
-&lt;h2 id="web-upload-fun"&gt;WEB: Upload Fun&lt;/h2&gt;
-&lt;p&gt;Description: I made a website where you can upload files.&lt;/p&gt;
-&lt;p&gt;We are given a url on visting it we get php code.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jwt on Stephenx0r - CTF Writeups</title>
+    <link>http://localhost:1313/tags/jwt/</link>
+    <description>Recent content in Jwt on Stephenx0r - CTF Writeups</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Mar 2024 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jwt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WolvCTF 2024 - Writeups</title>
+      <link>http://localhost:1313/posts/2024-03-17-wolvctf2024/</link>
+      <pubDate>Wed, 20 Mar 2024 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2024-03-17-wolvctf2024/</guid>
+      <description>&lt;p&gt;This is a writeup for , forensics and web challenges from WolvCTF 2024&lt;/p&gt;&#xA;&lt;h2 id=&#34;forensics-hidden-data-beginner&#34;&gt;Forensics: Hidden Data [Beginner]&lt;/h2&gt;&#xA;&lt;p&gt;Question: WOLPHV sent me this file. Not sure what to comment about it&lt;/p&gt;&#xA;&lt;p&gt;Flag: &lt;code&gt;wctf{h1dd3n_d4t4_n0T_s0_h1dD3N}&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;We are given an image of the CTF logo. Just use Aperi&amp;rsquo;Solve and the flag can be found within its data.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/posts/wolvctf2024/beginner1.png&#34; alt=&#34;beginner1.png&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;web-upload-fun&#34;&gt;WEB: Upload Fun&lt;/h2&gt;&#xA;&lt;p&gt;Description: I made a website where you can upload files.&lt;/p&gt;&#xA;&lt;p&gt;We are given a url on visting it we get php code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
