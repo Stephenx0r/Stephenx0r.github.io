@@ -19,14 +19,8 @@ I participate in Capture The Flag (CTF) competitions and document my solutions t
 
 ## CTF Experience
 
-I've participated in various CTF competitions including:
-- WolvCTF 2024
-- HTB CTF 2024
-- DeadFace CTF 2024
-- Blue Hens CTF 2024
-- Cyber Game 2025
-- US Cyber Games 2025
-- QNQSec CTF 2025
+
+
 
 ## Contact
 
