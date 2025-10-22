@@ -1,86 +1,172 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ctf on</title><link>https://stephenx0r.github.io/categories/ctf/</link><description>Recent content in Ctf on</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2025 Stephen Waweru</copyright><lastBuildDate>Fri, 20 Jun 2025 07:00:00 +0000</lastBuildDate><atom:link href="https://stephenx0r.github.io/categories/ctf/index.xml" rel="self" type="application/rss+xml"/><item><title>US CyberGames</title><link>https://stephenx0r.github.io/posts/2025-06-20-uscybergames2025/</link><pubDate>Fri, 20 Jun 2025 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2025-06-20-uscybergames2025/</guid><description>&lt;p&gt;This write up documents the challenges I solved during the US Cyber Games 2025 , specifically in the categories of &lt;strong&gt;Pwn&lt;/strong&gt;, &lt;strong&gt;Forensics&lt;/strong&gt;, &lt;strong&gt;Reverse Engineering&lt;/strong&gt;, and &lt;strong&gt;Cryptography&lt;/strong&gt;. Each section walks through my process—from analyzing binary exploits and reconstructing OLED display data to decrypting protected files and extracting browser artifacts.&lt;/p&gt;</description></item><item><title>Cybergame 2025 Writeups</title><link>https://stephenx0r.github.io/posts/2025-06-11-cybergame2025/</link><pubDate>Wed, 11 Jun 2025 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2025-06-11-cybergame2025/</guid><description>&lt;p&gt;I took 1st place 🥇 in CyberGame 2025, solving 71 out of 73 challenges and claiming 52 First bloods 🩸 along the way.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ctf on </title>
+    <link>http://localhost:1313/categories/ctf/</link>
+    <description>Recent content in Ctf on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Stephen Waweru</copyright>
+    <lastBuildDate>Fri, 20 Jun 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>US CyberGames</title>
+      <link>http://localhost:1313/posts/2025-06-20-uscybergames2025/</link>
+      <pubDate>Fri, 20 Jun 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025-06-20-uscybergames2025/</guid>
+      <description>&lt;p&gt;This write up documents the challenges I solved during the US Cyber Games 2025 , specifically in the categories of &lt;strong&gt;Pwn&lt;/strong&gt;, &lt;strong&gt;Forensics&lt;/strong&gt;, &lt;strong&gt;Reverse Engineering&lt;/strong&gt;, and &lt;strong&gt;Cryptography&lt;/strong&gt;. Each section walks through my process—from analyzing binary exploits and reconstructing OLED display data to decrypting protected files and extracting browser artifacts.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Cybergame 2025 Writeups</title>
+      <link>http://localhost:1313/posts/2025-06-11-cybergame2025/</link>
+      <pubDate>Wed, 11 Jun 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025-06-11-cybergame2025/</guid>
+      <description>&lt;p&gt;I took 1st place 🥇 in CyberGame 2025, solving 71 out of 73 challenges and claiming 52 First bloods 🩸 along the way.
 &lt;figure&gt;&lt;img
-class="my-0 rounded-md"
-loading="lazy"
-decoding="async"
-fetchpriority="low"
-alt="image"
-src="https://gist.github.com/user-attachments/assets/3dbb099e-da02-455a-b608-7952b96faad2"
-&gt;&lt;/figure&gt;
+    class=&#34;my-0 rounded-md&#34;
+    loading=&#34;lazy&#34;
+    decoding=&#34;async&#34;
+    fetchpriority=&#34;low&#34;
+    alt=&#34;image&#34;
+    src=&#34;https://gist.github.com/user-attachments/assets/3dbb099e-da02-455a-b608-7952b96faad2&#34;
+    &gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;The game featured a wide variety of categories, including:&lt;/p&gt;</description></item><item><title>Bluehens 2024 CTF</title><link>https://stephenx0r.github.io/posts/2024-11-10-bluehensctf2024/</link><pubDate>Sun, 10 Nov 2024 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-11-10-bluehensctf2024/</guid><description>&lt;h1 class="relative group"&gt;XS2: Looper - xor school
-&lt;div id="xs2-looper---xor-school" class="anchor"&gt;&lt;/div&gt;
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
-&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#xs2-looper---xor-school" aria-label="Anchor"&gt;#&lt;/a&gt;
-&lt;/span&gt;
+&lt;p&gt;The game featured a wide variety of categories, including:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Bluehens 2024 CTF</title>
+      <link>http://localhost:1313/posts/2024-11-10-bluehensctf2024/</link>
+      <pubDate>Sun, 10 Nov 2024 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024-11-10-bluehensctf2024/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;XS2: Looper - xor school
+    &lt;div id=&#34;xs2-looper---xor-school&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#xs2-looper---xor-school&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
 &lt;/h1&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img
-class="my-0 rounded-md"
-loading="lazy"
-decoding="async"
-fetchpriority="low"
-alt="image"
-src="https://gist.github.com/user-attachments/assets/1108c710-b744-4ced-ae6b-3edf7aa1681b"
-&gt;&lt;/figure&gt;
+    class=&#34;my-0 rounded-md&#34;
+    loading=&#34;lazy&#34;
+    decoding=&#34;async&#34;
+    fetchpriority=&#34;low&#34;
+    alt=&#34;image&#34;
+    src=&#34;https://gist.github.com/user-attachments/assets/1108c710-b744-4ced-ae6b-3edf7aa1681b&#34;
+    &gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;h3 class="relative group"&gt;Get Part of the XOR Key
-&lt;div id="get-part-of-the-xor-key" class="anchor"&gt;&lt;/div&gt;
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
-&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#get-part-of-the-xor-key" aria-label="Anchor"&gt;#&lt;/a&gt;
-&lt;/span&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;Get Part of the XOR Key
+    &lt;div id=&#34;get-part-of-the-xor-key&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#get-part-of-the-xor-key&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
 &lt;/h3&gt;
-&lt;p&gt;To kick things off, We leveraged the magic of knowing the flag format udctf{. XORing this snippet against the start of the ciphertext started to reveal a familiar, cheeky pattern in CTFs: &lt;code&gt;deadbe&lt;/code&gt;. At this point, the puzzle pieces were coming together.&lt;/p&gt;</description></item><item><title>Deadface 2024 CTF</title><link>https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/</link><pubDate>Mon, 28 Oct 2024 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-10-28-deadfacectf2024/</guid><description>&lt;p&gt;This is a writeup for DeadFace ctf 2024&lt;/p&gt;
+&lt;p&gt;To kick things off, We leveraged the magic of knowing the flag format udctf{. XORing this snippet against the start of the ciphertext started to reveal a familiar, cheeky pattern in CTFs: &lt;code&gt;deadbe&lt;/code&gt;. At this point, the puzzle pieces were coming together.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Deadface 2024 CTF</title>
+      <link>http://localhost:1313/posts/2024-10-28-deadfacectf2024/</link>
+      <pubDate>Mon, 28 Oct 2024 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024-10-28-deadfacectf2024/</guid>
+      <description>&lt;p&gt;This is a writeup for  DeadFace ctf 2024&lt;/p&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img
-class="my-0 rounded-md"
-loading="lazy"
-decoding="async"
-fetchpriority="low"
-alt="pic1.png"
-src="https://stephenx0r.github.io/assets/posts/deadface2024/pic1.png"
-&gt;&lt;/figure&gt;
+    class=&#34;my-0 rounded-md&#34;
+    loading=&#34;lazy&#34;
+    decoding=&#34;async&#34;
+    fetchpriority=&#34;low&#34;
+    alt=&#34;pic1.png&#34;
+    src=&#34;http://localhost:1313/assets/posts/deadface2024/pic1.png&#34;
+    &gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;h2 class="relative group"&gt;Reverse Engineering
-&lt;div id="reverse-engineering" class="anchor"&gt;&lt;/div&gt;
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
-&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#reverse-engineering" aria-label="Anchor"&gt;#&lt;/a&gt;
-&lt;/span&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Reverse Engineering
+    &lt;div id=&#34;reverse-engineering&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#reverse-engineering&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
 &lt;/h2&gt;
-&lt;h2 class="relative group"&gt;Cereal Killer 01
-&lt;div id="cereal-killer-01" class="anchor"&gt;&lt;/div&gt;
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
-&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#cereal-killer-01" aria-label="Anchor"&gt;#&lt;/a&gt;
-&lt;/span&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Cereal Killer 01
+    &lt;div id=&#34;cereal-killer-01&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#cereal-killer-01&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
 &lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;&lt;img
-class="my-0 rounded-md"
-loading="lazy"
-decoding="async"
-fetchpriority="low"
-alt="pic1.png"
-src="https://stephenx0r.github.io/assets/posts/deadface2024/pic2.png"
-&gt;&lt;/figure&gt;
-&lt;/p&gt;</description></item><item><title>WolvCTF 2024 - Writeups</title><link>https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/</link><pubDate>Wed, 20 Mar 2024 12:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-03-17-wolvctf2024/</guid><description>&lt;p&gt;This is a writeup for , forensics and web challenges from WolvCTF 2024&lt;/p&gt;
-&lt;h2 class="relative group"&gt;Forensics: Hidden Data [Beginner]
-&lt;div id="forensics-hidden-data-beginner" class="anchor"&gt;&lt;/div&gt;
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
-&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#forensics-hidden-data-beginner" aria-label="Anchor"&gt;#&lt;/a&gt;
-&lt;/span&gt;
+    class=&#34;my-0 rounded-md&#34;
+    loading=&#34;lazy&#34;
+    decoding=&#34;async&#34;
+    fetchpriority=&#34;low&#34;
+    alt=&#34;pic1.png&#34;
+    src=&#34;http://localhost:1313/assets/posts/deadface2024/pic2.png&#34;
+    &gt;&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>WolvCTF 2024 - Writeups</title>
+      <link>http://localhost:1313/posts/2024-03-17-wolvctf2024/</link>
+      <pubDate>Wed, 20 Mar 2024 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024-03-17-wolvctf2024/</guid>
+      <description>&lt;p&gt;This is a writeup for , forensics and web challenges from WolvCTF 2024&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Forensics: Hidden Data [Beginner]
+    &lt;div id=&#34;forensics-hidden-data-beginner&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#forensics-hidden-data-beginner&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
 &lt;/h2&gt;
-&lt;p&gt;Question: WOLPHV sent me this file. Not sure what to comment about it&lt;/p&gt;</description></item><item><title>HTB CYBER-APOCALYPSE 2024 FORENSICS WRITEUPS</title><link>https://stephenx0r.github.io/posts/2024-03-21-htbctf2024/</link><pubDate>Sun, 17 Mar 2024 07:00:00 +0000</pubDate><guid>https://stephenx0r.github.io/posts/2024-03-21-htbctf2024/</guid><description>&lt;p&gt;This is a writeup for forensics for HTB 2024&lt;/p&gt;
+&lt;p&gt;Question: WOLPHV sent me this file. Not sure what to comment about it&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>HTB CYBER-APOCALYPSE 2024 FORENSICS WRITEUPS</title>
+      <link>http://localhost:1313/posts/2024-03-21-htbctf2024/</link>
+      <pubDate>Sun, 17 Mar 2024 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2024-03-21-htbctf2024/</guid>
+      <description>&lt;p&gt;This is a writeup for forensics for HTB 2024&lt;/p&gt;
 &lt;p&gt;Urgent [Very Easy]&lt;/p&gt;
 &lt;p&gt;We are given an email file &lt;code&gt;.eml&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;Printing out its contents we notice base64 encoding
 &lt;figure&gt;&lt;img
-class="my-0 rounded-md"
-loading="lazy"
-decoding="async"
-fetchpriority="low"
-alt="beginner1.png"
-src="https://stephenx0r.github.io/assets/posts/htbctfapocalpyse2024/eml.png"
-&gt;&lt;/figure&gt;
-&lt;/p&gt;</description></item></channel></rss>
+    class=&#34;my-0 rounded-md&#34;
+    loading=&#34;lazy&#34;
+    decoding=&#34;async&#34;
+    fetchpriority=&#34;low&#34;
+    alt=&#34;beginner1.png&#34;
+    src=&#34;http://localhost:1313/assets/posts/htbctfapocalpyse2024/eml.png&#34;
+    &gt;&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
