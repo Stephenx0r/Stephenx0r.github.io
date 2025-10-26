@@ -4,21 +4,16 @@ draft = false
 title = 'About'
 +++
 
-# About Me
+# Who am I?
 
-Hello! I'm Stephen Waweru, a cybersecurity enthusiast and CTF competitor passionate about reverse engineering, web security, and digital forensics.
+My name is Stephen (Often known as Prof)
+CTF Player (Web+Crypto+Rev Most) + Learning Pentesting/Research
 
 ## What I Do
 
-I participate in Capture The Flag (CTF) competitions and document my solutions through detailed writeups. My areas of focus include:
-
-- **Reverse Engineering** - Analyzing binaries and understanding program behavior
-- **Web Security** - Finding and exploiting web vulnerabilities
-- **Digital Forensics** - Investigating security incidents and data recovery
-- **Cryptography** - Understanding encryption and cryptographic attacks
-
 ## CTF Experience
 
+I have won multiple local and international CTF competitions, demonstrating expertise across reverse engineering, web security, digital forensics, and cryptography.
 
 
 
@@ -27,5 +22,3 @@ I participate in Capture The Flag (CTF) competitions and document my solutions t
 Feel free to reach out if you have questions about my writeups or want to collaborate on security research!
 
 - **Email**: stephenx0r@proton.me
-- **LinkedIn**: [stephengathumbi](https://www.linkedin.com/in/stephengathumbi/)
-- **GitHub**: [Stephenx0r](https://github.com/Stephenx0r)
