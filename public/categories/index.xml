@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Stephen Waweru</copyright>
-    <lastBuildDate>Fri, 20 Jun 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Oct 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>QnQSecCTF2025</title>
+      <link>http://localhost:1313/categories/qnqsecctf2025/</link>
+      <pubDate>Thu, 23 Oct 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/qnqsecctf2025/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Ctf</title>

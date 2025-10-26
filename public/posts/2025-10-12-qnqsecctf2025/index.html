@@ -21,8 +21,10 @@
 
   
   
+    <meta name="description" content="QNQSec CTF 2025">
   
-    <meta name="keywords" content="flask,jwt,web,">
+  
+    <meta name="keywords" content="web,jwt,flask,sqlinjection,">
   
   
   
@@ -52,20 +54,21 @@
   
   <meta property="og:url" content="http://localhost:1313/posts/2025-10-12-qnqsecctf2025/">
   <meta property="og:title" content="QnQsec portal">
-  <meta property="og:description" content="The Challenge # The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: “The reflection is mine, but the soul feels borrowed” - which, as we’ll see, was a hint about the JWT manipulation we’d need to do.">
+  <meta property="og:description" content="QNQSec CTF 2025">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-10-21T07:00:00+00:00">
     <meta property="article:modified_time" content="2025-10-21T07:00:00+00:00">
-    <meta property="article:tag" content="Flask">
-    <meta property="article:tag" content="Jwt">
     <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Jwt">
+    <meta property="article:tag" content="Flask">
+    <meta property="article:tag" content="Sqlinjection">
 
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="QnQsec portal">
-  <meta name="twitter:description" content="The Challenge # The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: “The reflection is mine, but the soul feels borrowed” - which, as we’ll see, was a hint about the JWT manipulation we’d need to do.">
+  <meta name="twitter:description" content="QNQSec CTF 2025">
 
   
   
@@ -231,7 +234,7 @@
     "articleSection": "Posts",
     "name": "QnQsec portal",
     "headline": "QnQsec portal",
-    
+    "description": "QNQSec CTF 2025",
     "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eThe Challenge\n    \u003cdiv id=\u0022the-challenge\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#the-challenge\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e\n    \n\u003c\/h2\u003e\n\u003cp\u003eThe challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: \u003cem\u003e\u0026ldquo;The reflection is mine, but the soul feels borrowed\u0026rdquo;\u003c\/em\u003e - which, as we\u0026rsquo;ll see, was a hint about the JWT manipulation we\u0026rsquo;d need to do.\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/2025-10-12-qnqsecctf2025\/",
@@ -245,10 +248,10 @@
     
     "dateModified": "2025-10-21T07:00:00\u002b00:00",
     
-    "keywords": ["flask","jwt","web"],
+    "keywords": ["web","jwt","flask","sqlinjection"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1474"
+    "wordCount": "1477"
   }]
   </script>
 
@@ -908,7 +911,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    QNQSecCTF2025
+    QnQSecCTF2025
   </span>
 </span>
 
@@ -922,11 +925,11 @@
         
           
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/flask/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/web/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Flask
+    Web
   </span>
 </span>
 
@@ -942,11 +945,21 @@
 
               </a>
             
-              <a class="relative mt-[0.5rem] me-2" href="/tags/web/">
+              <a class="relative mt-[0.5rem] me-2" href="/tags/flask/">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
+    Flask
+  </span>
+</span>
+
+              </a>
+            
+              <a class="relative mt-[0.5rem] me-2" href="/tags/sqlinjection/">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Sqlinjection
   </span>
 </span>
 
@@ -1652,9 +1665,26 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Test admin access</span>
 </span></span><span style="display:flex;"><span>resp <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;http://161.97.155.116:5001/admin&#39;</span>)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Admin status: </span><span style="color:#e6db74">{</span>resp<span style="color:#f92672">.</span>status_code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-</span></span></code></pre></div><!-- raw HTML omitted -->
-<p>Great! I got 200 OK. The admin panel shows a template renderer form:</p>
-<!-- raw HTML omitted -->
+</span></span></code></pre></div><p>We are admin</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="image"
+    src="https://gist.github.com/user-attachments/assets/78646a4e-3bae-4371-af42-2fdc0d31cf5c"
+    ></figure>
+</p>
+<p>Great! I got 200 OK. The admin panel shows a template renderer form:
+<figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="image"
+    src="https://gist.github.com/user-attachments/assets/c9699028-deb7-43c2-8e30-4564a85b2561"
+    ></figure>
+</p>
 
 <h2 class="relative group">The SSTI Exploit
     <div id="the-ssti-exploit" class="anchor"></div>
@@ -1736,8 +1766,16 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    exploit()
 </span></span></code></pre></div><!-- raw HTML omitted -->
-<p>Request in Burpsuite
-<!-- raw HTML omitted --></p>
+<p>Request in Burpsuite</p>
+<p><figure><img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="image"
+    src="https://gist.github.com/user-attachments/assets/8f2efcae-22de-4038-83f9-41ca07aaeeb3"
+    ></figure>
+</p>
 
 <h2 class="relative group">Key Takeaways
     <div id="key-takeaways" class="anchor"></div>
@@ -2061,7 +2099,7 @@
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    QNQSecCTF2025
+    QnQSecCTF2025
   </span>
 </span>
 
@@ -2100,16 +2138,6 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Xxe
-  </span>
-</span>
-
-              </a>
-            
-              <a class="relative mt-[0.5rem] me-2" href="/tags/sqlinjection/">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Sqlinjection
   </span>
 </span>
 
@@ -2827,6 +2855,15 @@
           
         </span>
         <span class="flex flex-col items-end">
+          
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="/posts/2025-10-12-faas/">
+              <span class="leading-6">
+                FaaS&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            
           
         </span>
       </div>

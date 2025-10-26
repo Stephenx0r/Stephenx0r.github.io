@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Stephen Waweru</copyright>
-    <lastBuildDate>Tue, 21 Oct 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Oct 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/tags/web/</link>
+      <pubDate>Thu, 23 Oct 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/web/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Flask</title>
@@ -30,11 +40,31 @@
     </item>
     
     <item>
-      <title>Web</title>
-      <link>http://localhost:1313/tags/web/</link>
+      <title>Php</title>
+      <link>http://localhost:1313/tags/php/</link>
       <pubDate>Tue, 21 Oct 2025 07:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/web/</guid>
+      <guid>http://localhost:1313/tags/php/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Sqlinjection</title>
+      <link>http://localhost:1313/tags/sqlinjection/</link>
+      <pubDate>Tue, 21 Oct 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/sqlinjection/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Xxe</title>
+      <link>http://localhost:1313/tags/xxe/</link>
+      <pubDate>Tue, 21 Oct 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/xxe/</guid>
       <description></description>
       
     </item>

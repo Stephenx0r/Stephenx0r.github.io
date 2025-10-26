@@ -10,11 +10,11 @@
     <lastBuildDate>Tue, 21 Oct 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/sqlinjection/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>s3cr3ct_w3b</title>
-      <link>http://localhost:1313/posts/s3cr3ct_w3b/</link>
+      <title>QnQsec portal</title>
+      <link>http://localhost:1313/posts/2025-10-12-qnqsecctf2025/</link>
       <pubDate>Tue, 21 Oct 2025 07:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/s3cr3ct_w3b/</guid>
+      <guid>http://localhost:1313/posts/2025-10-12-qnqsecctf2025/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;The Challenge
     &lt;div id=&#34;the-challenge&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -24,7 +24,7 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
-&lt;p&gt;The challenge presented us with a PHP web application that had authentication and an XML parser. The application consisted of a login system and an XML upload feature that would process user-submitted XML files.&lt;/p&gt;</description>
+&lt;p&gt;The challenge presented us with a Flask web application that had JWT authentication and an admin panel. The description was cryptic: &lt;em&gt;&amp;ldquo;The reflection is mine, but the soul feels borrowed&amp;rdquo;&lt;/em&gt; - which, as we&amp;rsquo;ll see, was a hint about the JWT manipulation we&amp;rsquo;d need to do.&lt;/p&gt;</description>
       
     </item>
     
