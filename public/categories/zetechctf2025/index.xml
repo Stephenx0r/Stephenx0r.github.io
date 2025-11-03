@@ -24,7 +24,7 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
-&lt;p&gt;In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &amp;ldquo;SUCCESS&amp;rdquo;. We&amp;rsquo;re given a binary file, and by analyzing it step by step, we can crack the puzzle.&lt;/p&gt;</description>
+&lt;p&gt;In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &amp;ldquo;SUCCESS&amp;rdquo;. We&amp;rsquo;re given a binary file. Time to reverse engineer it and find the flag!&lt;/p&gt;</description>
       
     </item>
     
