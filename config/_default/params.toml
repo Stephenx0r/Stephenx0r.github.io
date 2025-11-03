@@ -54,8 +54,8 @@ fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384",
   headline = "Cybersecurity Researcher & CTF Player"
   bio = "Breaking binaries, not hearts. Unraveling the art of cybersecurity through detailed CTF writeups and explorations."
   links = [
-    { linkedin = "https://www.linkedin.com/in/stephengathumbi/" },
-    { github = "https://github.com/Stephenx0r" }
+    { linkedin = "https://www.linkedin.com/in/" },
+    { github = "https://github.com/" }
   ]
 
 [homepage]
@@ -167,7 +167,7 @@ fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384",
   # enableTrackEvent = false
 
 [buymeacoffee]
-  identifier = "nunocoracao"
+  identifier = "stephenprob"
   globalWidget = true
   globalWidgetMessage = ""
   globalWidgetColor = "#FFDD00"
