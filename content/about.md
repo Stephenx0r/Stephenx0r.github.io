@@ -6,8 +6,7 @@ title = 'About'
 
 # Who am I?
 
-My name is Stephen (Often known as Prof)
-CTF Player (Crypto+Rev+Forensics Most, with a bit of Other categories)
+My name is Stephen (Often known as Prof). I'm a CTF Player specializing in Crypto, Reverse Engineering, and Forensics, with a bit of other categories thrown into the mix.
 
 ## What I Do
 
