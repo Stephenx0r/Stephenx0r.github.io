@@ -233,7 +233,7 @@
     "name": "Doo-doo-doo-doo...",
     "headline": "Doo-doo-doo-doo...",
     "description": "ZetechCTF2025 - Reverse engineering DTMF signal challenge",
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eThe Challenge\n    \u003cdiv id=\u0022the-challenge\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#the-challenge\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e\n    \n\u003c\/h2\u003e\n\u003cp\u003eIn this reverse engineering challenge, we need to figure out what kind of input a program needs to print \u0026ldquo;SUCCESS\u0026rdquo;. We\u0026rsquo;re given a decompiled C\u002b\u002b file, and by analyzing it step by step, we can crack the puzzle.\u003c\/p\u003e",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eThe Challenge\n    \u003cdiv id=\u0022the-challenge\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none\u0022\u003e\n        \u003ca class=\u0022text-primary-300 dark:text-neutral-700 !no-underline\u0022 href=\u0022#the-challenge\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e\n    \n\u003c\/h2\u003e\n\u003cp\u003eIn this reverse engineering challenge, we need to figure out what kind of input a program needs to print \u0026ldquo;SUCCESS\u0026rdquo;. We\u0026rsquo;re given a binary file. Time to reverse engineer it and find the flag!\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/2025-11-03-doo-doo-doo-doo\/",
     "author" : {
@@ -249,7 +249,7 @@
     "keywords": ["reverseengineering","dtmf"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1331"
+    "wordCount": "1327"
   }]
   </script>
 
@@ -1221,7 +1221,7 @@
     </span>
     
 </h2>
-<p>In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &ldquo;SUCCESS&rdquo;. We&rsquo;re given a decompiled C++ file, and by analyzing it step by step, we can crack the puzzle.</p>
+<p>In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &ldquo;SUCCESS&rdquo;. We&rsquo;re given a binary file. Time to reverse engineer it and find the flag!</p>
 <p><strong>Quick note:</strong> The decompiled code from IDA Pro uses generic variable names like <code>v7</code>, <code>v11</code>, <code>v13</code>, etc. To make this easier to follow, I&rsquo;ve renamed the important variables and functions to more descriptive names (like <code>audio_stream</code>, <code>process_audio</code>, <code>check_sequence</code>) as we go through the analysis.</p>
 
 <h2 class="relative group">Step 1: First Glance at the Code (Static Analysis)

@@ -24,7 +24,7 @@
     &lt;/span&gt;
     
 &lt;/h2&gt;
-&lt;p&gt;In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &amp;ldquo;SUCCESS&amp;rdquo;. We&amp;rsquo;re given a decompiled C++ file, and by analyzing it step by step, we can crack the puzzle.&lt;/p&gt;</description>
+&lt;p&gt;In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &amp;ldquo;SUCCESS&amp;rdquo;. We&amp;rsquo;re given a binary file. Time to reverse engineer it and find the flag!&lt;/p&gt;</description>
       
     </item>
     
@@ -62,7 +62,7 @@
     &lt;/span&gt;
     
 &lt;/h1&gt;
-&lt;p&gt;My name is Stephen (Often known as Prof). I&amp;rsquo;m a CTF Player specializing in Crypto, Reverse Engineering, and Forensics, with a bit of other categories thrown into the mix.&lt;/p&gt;</description>
+&lt;p&gt;My name is Stephen (Often known as Prof|madbit). I&amp;rsquo;m a CTF Player specializing in Crypto, Reverse Engineering, and Forensics, with a bit of other categories thrown into the mix.&lt;/p&gt;</description>
       
     </item>
     

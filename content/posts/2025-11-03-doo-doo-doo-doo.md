@@ -11,7 +11,7 @@ description: ZetechCTF2025 - Reverse engineering DTMF signal challenge
 
 ## The Challenge
 
-In this reverse engineering challenge, we need to figure out what kind of input a program needs to print "SUCCESS". We're given a binary file, and by analyzing it step by step, we can crack the puzzle.
+In this reverse engineering challenge, we need to figure out what kind of input a program needs to print "SUCCESS". We're given a binary file. Time to reverse engineer it and find the flag!
 
 **Quick note:** The decompiled code from IDA Pro uses generic variable names like `v7`, `v11`, `v13`, etc. To make this easier to follow, I've renamed the important variables and functions to more descriptive names (like `audio_stream`, `process_audio`, `check_sequence`) as we go through the analysis.
 
