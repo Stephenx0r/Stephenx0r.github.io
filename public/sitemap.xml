@@ -4,13 +4,55 @@
 
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-23T07:00:00+00:00</lastmod>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/beginner/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-10-23T07:00:00+00:00</lastmod>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/2025-11-03-doo-doo-doo-doo/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/dtmf/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/categories/mmu-tech-community-ctf-2025/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/reverseengineering/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-11-03T07:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -21,19 +63,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-23T07:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/categories/qnqsecctf2025/</loc>
-    <lastmod>2025-10-23T07:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-10-23T07:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -111,12 +141,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/reverseengineering/</loc>
-    <lastmod>2025-06-20T07:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/posts/2025-06-20-uscybergames2025/</loc>
     <lastmod>2025-06-20T07:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -161,12 +185,6 @@
   <url>
     <loc>http://localhost:1313/tags/forensics/</loc>
     <lastmod>2024-10-28T07:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/tags/beginner/</loc>
-    <lastmod>2024-03-20T12:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

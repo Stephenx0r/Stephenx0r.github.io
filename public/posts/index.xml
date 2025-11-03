@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Stephen Waweru</copyright>
-    <lastBuildDate>Thu, 23 Oct 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Nov 2025 07:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Doo-doo-doo-doo...</title>
+      <link>http://localhost:1313/posts/2025-11-03-doo-doo-doo-doo/</link>
+      <pubDate>Mon, 03 Nov 2025 07:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/2025-11-03-doo-doo-doo-doo/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;The Challenge
+    &lt;div id=&#34;the-challenge&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none&#34;&gt;
+        &lt;a class=&#34;text-primary-300 dark:text-neutral-700 !no-underline&#34; href=&#34;#the-challenge&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;
+    
+&lt;/h2&gt;
+&lt;p&gt;In this reverse engineering challenge, we need to figure out what kind of input a program needs to print &amp;ldquo;SUCCESS&amp;rdquo;. We&amp;rsquo;re given a decompiled C++ file, and by analyzing it step by step, we can crack the puzzle.&lt;/p&gt;</description>
+      
+    </item>
     
     <item>
       <title>FaaS</title>
