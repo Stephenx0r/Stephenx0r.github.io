@@ -18,10 +18,10 @@ I have won multiple local and international CTF competitions, demonstrating expe
 ## Achievements
 
 - 🥇 1st — Nyeri Edition Hackathon (KCFSA & CA Communications Authority)
-- 🥉 3rd — PerfectRoot CTF 2024 (Team Pwnus)
-- 🥈 2nd — BitSiege 2025 (Team Pwnus)
+- 🥉 3rd — PerfectRoot CTF 2024 
+- 🥈 2nd — BitSiege 2025 
 - 🥇 1st — CyberGame Kenya 2025
-- 🥉 3rd — PwnZone CTF Safaricom 2025 (Team Pwnus)
+- 🥉 3rd — PwnZone CTF Safaricom 2025 
 - 🥇 1st — MMU Tech Community CTF 2025
 - 🥇 1st — HackFest 3.0, Computer Society of Kirinyaga 2025
 - 🥇 1st — Zetech CTF 2025
