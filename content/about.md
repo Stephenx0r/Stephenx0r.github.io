@@ -25,7 +25,7 @@ I have won multiple local and international CTF competitions, demonstrating expe
 - 🥇 1st — MMU Tech Community CTF 2025
 - 🥇 1st — HackFest 3.0, Computer Society of Kirinyaga 2025
 - 🥇 1st — Zetech CTF 2025
-
+- 🥇 1st - PerfectRoot CTF 2025
 <!-- ## Want to Hack Together?
 
 Looking to play CTFs together or join a team? I'm always open to collaborating with fellow CTF enthusiasts! Feel free to fill out the [registration form](https://docs.google.com/forms/d/1Q2FQkXm1zZN7EqK7Qr1Ix9057soU3z2DPwtUy8AINoc/viewform) if you're interested. -->
